@@ -1,0 +1,200 @@
+/* TELLI — одностраничный сайт. Цвета: молочный фон, светлый шалфей, тёмно-зелёный акцент, золото точечно */
+:root{
+  --ivory:#FAF7F0;
+  --sage:#EEF0E5;
+  --sage-2:#E2E6D6;
+  --green:#2F4526;
+  --green-2:#3B5530;
+  --gold:#B8955A;
+  --gold-light:#D4B87E;
+  --ink:#1F271B;
+  --muted:#5F6A58;
+  --line:rgba(47,69,38,.14);
+  --serif:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+  --sans:"Manrope",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --radius:4px;
+  --header-h:72px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:var(--header-h)}
+body{margin:0;background:var(--ivory);color:var(--ink);font:400 16px/1.65 var(--sans);-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+p{margin:0 0 1em}
+.container{width:100%;max-width:1200px;margin:0 auto;padding:0 24px}
+
+/* ---------- типографика ---------- */
+.h1,.h2,.h3{font-family:var(--serif);font-weight:500;color:var(--green);margin:0;line-height:1.1}
+.h1{font-size:clamp(40px,5.4vw,68px)}
+.h2{font-size:clamp(32px,3.8vw,48px)}
+.h3{font-size:28px}
+.eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:14px}
+.rule{display:block;width:56px;height:1px;background:var(--gold);margin:22px 0 26px}
+.lead{font-size:18px}
+.sub{color:var(--muted);max-width:560px}
+.muted{color:var(--muted);font-size:14px}
+.gold{color:var(--gold)}
+.quote{font-family:var(--serif);font-style:italic;font-size:22px;color:var(--gold)}
+em{font-style:italic}
+
+/* ---------- кнопки ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:12px 24px;border-radius:var(--radius);font:600 14px/1.2 var(--sans);letter-spacing:.02em;text-decoration:none;border:1px solid transparent;transition:background .2s,color .2s,border-color .2s;cursor:pointer;text-align:center}
+.btn--gold{background:var(--gold);color:#fff}
+.btn--gold:hover{background:#a7854c}
+.btn--green{background:var(--green);color:#fff}
+.btn--green:hover{background:var(--green-2)}
+.btn--outline{border-color:var(--green);color:var(--green);background:transparent}
+.btn--outline:hover{background:var(--green);color:#fff}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+
+/* ---------- шапка ---------- */
+.header{position:sticky;top:0;z-index:50;background:rgba(250,247,240,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.header__inner{display:flex;align-items:center;gap:28px;height:var(--header-h)}
+.header__logo img{width:112px;height:auto}
+.nav{display:flex;gap:20px;flex:1;justify-content:center}
+.nav a{font-size:13px;text-decoration:none;color:var(--ink);white-space:nowrap;padding:6px 0;border-bottom:1px solid transparent}
+.nav a:hover{border-bottom-color:var(--gold)}
+.nav__wa{display:none}
+.header__cta{min-height:40px;padding:10px 18px;font-size:13px}
+.burger{display:none;margin-left:auto;width:44px;height:44px;border:0;background:none;padding:10px;cursor:pointer}
+.burger span{display:block;height:1.5px;background:var(--green);margin:6px 0;transition:transform .25s,opacity .25s}
+.burger[aria-expanded="true"] span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+.burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+
+/* ---------- секции ---------- */
+.section{padding:110px 0}
+.section--sage{background:var(--sage)}
+.section--line{border-top:1px solid var(--line)}
+
+.split{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.split--rev > .slider{order:2}
+
+/* ---------- первый экран ---------- */
+.hero{padding:70px 0 90px;background:linear-gradient(180deg,var(--ivory) 0%,var(--sage) 100%)}
+.hero__grid{display:grid;grid-template-columns:1.05fr 1fr;gap:72px;align-items:center}
+.hero__text p{max-width:520px}
+
+/* ---------- цифры ---------- */
+.stats{background:var(--green);color:#fff;padding:54px 0}
+.stats__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
+.stat__num{font-family:var(--serif);font-size:44px;color:var(--gold-light);line-height:1.1}
+.stat__label{font-size:13px;color:#D8DACB;margin-top:6px}
+
+/* ---------- слайдер ---------- */
+.slider{position:relative;overflow:hidden;border-radius:var(--radius);background:var(--sage-2)}
+.slider__track{display:flex;height:100%;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none}
+.slider__track::-webkit-scrollbar{display:none}
+.slide{flex:0 0 100%;margin:0;scroll-snap-align:start;position:relative}
+.slide img{width:100%;height:100%;object-fit:cover}
+.slide--ph{display:flex;align-items:center;justify-content:center;background:repeating-linear-gradient(135deg,var(--sage-2) 0 14px,#E7EADC 14px 28px);color:var(--muted);font-size:13px;text-align:center;padding:20px}
+.slider--tall{aspect-ratio:6/7}
+.slider--portrait{aspect-ratio:9/11}
+.slider--wide{aspect-ratio:4/3}
+.slider--card{aspect-ratio:5/4;border-radius:var(--radius) var(--radius) 0 0}
+.slider__btn{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border-radius:50%;border:0;background:rgba(250,247,240,.9);color:var(--green);cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .2s}
+.slider:hover .slider__btn,.slider__btn:focus-visible{opacity:1}
+.slider__btn--prev{left:14px}.slider__btn--next{right:14px}
+.slider__dots{position:absolute;left:0;right:0;bottom:14px;display:flex;justify-content:center;gap:8px}
+.slider__dot{width:8px;height:8px;border-radius:50%;border:1px solid #fff;background:rgba(255,255,255,.35);padding:0;cursor:pointer}
+.slider__dot.is-active{background:var(--gold);border-color:var(--gold)}
+
+/* ---------- о компании ---------- */
+.about{display:grid;grid-template-columns:1.1fr 1fr;gap:72px;align-items:start}
+.cities{display:grid;gap:22px;margin:30px 0}
+.city{display:grid;grid-template-columns:72px 1fr;gap:20px;align-items:center;padding:20px;background:var(--green);border-radius:var(--radius);color:#E3E5D8}
+.city p{margin:0;font-size:14px}
+.city__icon{width:72px;height:72px;object-fit:contain}
+.city__name{font-family:var(--serif);font-size:24px;color:#fff;margin-bottom:4px}
+.city .gold{color:var(--gold-light)}
+.brandline{font-family:var(--serif);font-size:20px;color:var(--green);line-height:1.5}
+
+/* ---------- бренды ---------- */
+.products{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;margin-top:36px}
+.product{background:#fff;border:1px solid var(--line);border-radius:var(--radius);text-decoration:none;overflow:hidden;transition:transform .2s,box-shadow .2s}
+.product:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(47,69,38,.10)}
+.product__img{aspect-ratio:1;display:flex;align-items:center;justify-content:center}
+.ph{background:repeating-linear-gradient(135deg,var(--sage) 0 14px,#F3F4EC 14px 28px);color:var(--muted);font-size:12px}
+.product__body{padding:16px}
+.product__brand{font-family:var(--serif);font-size:21px;color:var(--green);line-height:1.15}
+.product__name{font-size:13px;color:var(--muted);margin-top:4px}
+.buy{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:36px}
+.buy__label{font-weight:600;margin-right:6px}
+
+/* ---------- made in kz ---------- */
+.kz{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.kz__card{background:#fff;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line)}
+.kz__body{padding:28px}
+.kz__body .h3{margin-bottom:10px}
+.market{display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin-top:8px}
+.market__label{font-size:13px;color:var(--muted);margin-right:4px}
+.mk{display:inline-flex;align-items:center;justify-content:center;min-width:64px;height:40px;padding:0 14px;border-radius:20px;font:700 13px/1 var(--sans);text-decoration:none;color:#fff;transition:filter .2s}
+.mk:hover{filter:brightness(1.08)}
+.mk--kaspi{background:#F14635}
+.mk--wb{background:#A73AFD}
+.mk--ozon{background:#005BFF}
+
+/* ---------- косметология ---------- */
+.procs{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:8px 0 24px}
+.proc{border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px;background:#fff}
+.proc__name{font-family:var(--serif);font-size:20px;color:var(--green)}
+.proc__type{font-size:12px;color:var(--muted)}
+
+/* ---------- аптека ---------- */
+.bignum{display:flex;align-items:baseline;gap:12px;margin-top:10px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.bignum span{font-family:var(--serif);font-size:54px;letter-spacing:0;color:var(--gold)}
+
+/* ---------- подвал ---------- */
+.footer{background:var(--green);color:#D8DACB;padding:64px 0 28px;font-size:14px}
+.footer a{text-decoration:none}
+.footer__grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;align-items:start}
+.footer__logo{width:160px;height:auto;margin-bottom:18px}
+.footer__hours{margin:0 0 14px}
+.footer__social{display:inline-flex;align-items:center;gap:10px;color:var(--gold-light);font-weight:600}
+.footer__social:hover{color:#fff}
+.footer__label{font-family:var(--serif);font-size:22px;color:#fff;margin-bottom:6px}
+.footer__city p{margin:0 0 6px;color:#B9BEAC}
+.footer__phone{font-size:16px;font-weight:600;color:var(--gold-light)}
+.footer__phone:hover{color:#fff}
+.footer__copy{margin-top:48px;padding-top:20px;border-top:1px solid rgba(255,255,255,.12);font-size:12px;color:#9EA592}
+
+/* ---------- адаптив ---------- */
+@media (max-width:1180px){
+  .nav{gap:14px}
+  .nav a{font-size:12px}
+}
+@media (max-width:1060px){
+  .burger{display:block}
+  .header__cta{display:none}
+  .nav .nav__wa{display:block;margin-top:16px;border:0;background:var(--gold);color:#fff;text-align:center;border-radius:var(--radius);font-weight:600}
+  .nav{position:fixed;inset:var(--header-h) 0 auto 0;flex-direction:column;align-items:stretch;gap:0;background:var(--ivory);padding:8px 24px 24px;border-bottom:1px solid var(--line);transform:translateY(-8px);opacity:0;visibility:hidden;transition:.2s}
+  .nav.is-open{transform:none;opacity:1;visibility:visible}
+  .nav a{font-size:16px;padding:14px 0;border-bottom:1px solid var(--line)}
+  .products{grid-template-columns:repeat(3,1fr)}
+}
+@media (max-width:860px){
+  .section{padding:72px 0}
+  .hero{padding:36px 0 56px}
+  .hero__grid,.split,.about,.kz{grid-template-columns:1fr;gap:36px}
+  .split--rev > .slider{order:0}
+  .split > .slider{order:-1}
+  .hero__grid .slider{order:-1;aspect-ratio:4/3}
+  .stats__grid{grid-template-columns:repeat(2,1fr);row-gap:32px}
+  .stat__num{font-size:36px}
+  .footer__grid{grid-template-columns:1fr 1fr}
+  .footer__brand{grid-column:1/-1}
+  .slider__btn{display:none}
+}
+@media (max-width:560px){
+  .container{padding:0 16px}
+  .products{grid-template-columns:repeat(2,1fr);gap:12px}
+  .product__body{padding:12px}
+  .product__brand{font-size:18px}
+  .procs{grid-template-columns:1fr}
+  .buy .btn,.btns .btn{width:100%}
+  .footer__grid{grid-template-columns:1fr;gap:28px}
+  .footer .btn{width:100%}
+}
+@media (prefers-reduced-motion:reduce){
+  html,.slider__track{scroll-behavior:auto}
+}
