@@ -8,7 +8,9 @@ var CONFIG = {
   links: {
     kaspi: '',      // магазин TELLI на Kaspi.kz
     instagram: '',  // https://instagram.com/...
-    arnica: ''      // меню / бронирование ARNICA
+    arnica: '',     // меню / бронирование ARNICA
+    tiktok: '',     // https://www.tiktok.com/@...
+    facebook: ''    // https://www.facebook.com/...
   }
 };
 

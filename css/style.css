@@ -157,13 +157,16 @@ em{font-style:italic}
 .footer a{text-decoration:none}
 .footer__grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;align-items:start}
 .footer__logo{width:auto;height:110px;margin-bottom:20px}
-.footer__hours{margin:0 0 14px}
-.footer__social{display:inline-flex;align-items:center;gap:10px;color:var(--gold-light);font-weight:600}
-.footer__social:hover{color:#fff}
-.footer__label{font-family:var(--serif);font-size:18px;text-transform:uppercase;letter-spacing:.08em;color:#fff;margin-bottom:6px}
-.footer__city p{margin:0 0 6px;color:#B9BEAC}
-.footer__phone{font-size:16px;font-weight:600;color:var(--gold-light)}
-.footer__phone:hover{color:#fff}
+.footer__label{font-family:var(--serif);font-size:18px;text-transform:uppercase;letter-spacing:.08em;padding-bottom:10px;margin-bottom:16px;border-bottom:1px solid rgba(212,184,126,.4);width:max-content;color:#fff}
+.footer__phone{display:inline-block;font-size:18px;font-weight:600;color:#fff;letter-spacing:.02em}
+.footer__hours{margin:8px 0 0;color:#C9CDBC}
+.footer__wa{margin-top:20px}
+.footer__wa span{display:block;font-size:13px;color:#C9CDBC;margin-bottom:2px}
+.socials{display:flex;gap:12px;margin:4px 0 6px}
+.socials__item{width:44px;height:44px;border-radius:50%;background:var(--ivory);color:var(--green);display:flex;align-items:center;justify-content:center;transition:background .2s,color .2s}
+.socials__item svg{width:22px;height:22px}
+.socials__item:hover{background:var(--gold);color:#fff}
+.footer__phone:hover{color:var(--gold-light)}
 .footer__copy{margin-top:48px;padding-top:20px;border-top:1px solid rgba(255,255,255,.12);font-size:12px;color:#9EA592}
 
 /* ---------- адаптив ---------- */
