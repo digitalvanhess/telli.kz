@@ -6,12 +6,12 @@
 - `index.html` — вся страница, блоки по макету (ТЗ Катерины)
 - `css/style.css` — стили; цвета в `:root` (молочный, шалфей, тёмно-зелёный, золото)
 - `js/main.js` — слайдеры (CSS scroll-snap), меню, ссылки WhatsApp/Kaspi/Instagram
-- `img/` — фото (сейчас временные, из презентации)
+- `img/` — фото в WebP (до 1400 px по длинной стороне) и логотип PNG с прозрачным фоном
 
 ## Что заполнить, когда придут данные
 1. В начале `js/main.js` объект `CONFIG`: номер WhatsApp менеджера, ссылки Kaspi, Instagram, ARNICA.
 2. Тексты в квадратных скобках `[...]` в `index.html`.
-3. Заглушки фото (`slide--ph`, `ph`) заменить на `<figure class="slide"><img src="img/..." alt="..."></figure>`.
+3. Заглушки фото (`slide--ph`, `ph`) заменить на `<figure class="slide"><img src="img/имя.webp" alt="..." loading="lazy"></figure>`.
    Слайд в слайдере добавляется ещё одним `<figure class="slide">` — стрелки и точки появятся сами.
 4. Ссылки карточек брендов (`<a class="product" href="#">`) и иконок Kaspi/WB/Ozon в блоке Made in Kazakhstan.
 
