@@ -95,8 +95,9 @@ em{font-style:italic}
 .slider--portrait{aspect-ratio:9/11}
 .slider--wide{aspect-ratio:4/3}
 .slider--card{aspect-ratio:16/10;border-radius:var(--radius) var(--radius) 0 0}
-.slider__btn{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border-radius:50%;border:0;background:rgba(250,247,240,.9);color:var(--green);cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .2s}
-.slider:hover .slider__btn,.slider__btn:focus-visible{opacity:1}
+.slider__btn{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border-radius:50%;border:0;background:rgba(250,247,240,.9);color:var(--green);cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 10px rgba(0,0,0,.12);transition:background .2s,color .2s}
+.slider__btn:hover{background:var(--green);color:#fff}
+.slider__btn--next svg{transform:scaleX(-1)}
 .slider__btn--prev{left:14px}.slider__btn--next{right:14px}
 .slider__dots{position:absolute;left:0;right:0;bottom:14px;display:flex;justify-content:center;gap:8px}
 .slider__dot{width:8px;height:8px;border-radius:50%;border:1px solid #fff;background:rgba(255,255,255,.35);padding:0;cursor:pointer}
@@ -186,7 +187,8 @@ em{font-style:italic}
   .stat__num{font-size:36px}
   .footer__grid{grid-template-columns:1fr 1fr}
   .footer__brand{grid-column:1/-1}
-  .slider__btn{display:none}
+  .slider__btn{width:36px;height:36px}
+  .slider__btn--prev{left:10px}.slider__btn--next{right:10px}
 }
 @media (max-width:560px){
   .container{padding:0 16px}
