@@ -1,4 +1,5 @@
-/* TELLI — одностраничный сайт. Цвета: молочный фон, светлый шалфей, тёмно-зелёный акцент, золото точечно */
+/* TELLI — одностраничный сайт. Цвета: молочный фон, светлый шалфей, тёмно-зелёный акцент, золото точечно.
+   Оформление «Арки бутика»: заголовки Forum (римские буквы, как в логотипе), текст Montserrat, арочный верх у вертикальных фото */
 :root{
   --ivory:#FAF7F0;
   --sage:#EEF0E5;
@@ -10,35 +11,36 @@
   --ink:#1F271B;
   --muted:#5F6A58;
   --line:rgba(47,69,38,.14);
-  --serif:"Cormorant Garamond",Georgia,"Times New Roman",serif;
-  --sans:"Manrope",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --serif:"Forum",Georgia,"Times New Roman",serif;
+  --italic:"Cormorant Garamond",Georgia,serif;
+  --sans:"Montserrat",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
   --radius:4px;
   --header-h:72px;
 }
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:var(--header-h)}
-body{margin:0;background:var(--ivory);color:var(--ink);font:400 16px/1.65 var(--sans);-webkit-font-smoothing:antialiased}
+body{margin:0;background:var(--ivory);color:var(--ink);font:400 15px/1.75 var(--sans);-webkit-font-smoothing:antialiased}
 img{max-width:100%;display:block}
 a{color:inherit}
 p{margin:0 0 1em}
 .container{width:100%;max-width:1200px;margin:0 auto;padding:0 24px}
 
 /* ---------- типографика ---------- */
-.h1,.h2,.h3{font-family:var(--serif);font-weight:500;color:var(--green);margin:0;line-height:1.1}
-.h1{font-size:clamp(40px,5.4vw,68px)}
-.h2{font-size:clamp(32px,3.8vw,48px)}
-.h3{font-size:28px}
-.eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:14px}
-.rule{display:block;width:56px;height:1px;background:var(--gold);margin:22px 0 26px}
+.h1,.h2,.h3{font-family:var(--serif);font-weight:400;color:var(--green);margin:0;line-height:1.15;text-transform:uppercase;letter-spacing:.05em}
+.h1{font-size:clamp(32px,4.3vw,56px)}
+.h2{font-size:clamp(26px,3.2vw,42px)}
+.h3{font-size:24px}
+.eyebrow{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:14px}
+.rule{display:block;width:64px;height:5px;border-top:1px solid var(--gold);border-bottom:1px solid var(--gold);margin:22px 0 26px}
 .lead{font-size:18px}
 .sub{color:var(--muted);max-width:560px}
 .muted{color:var(--muted);font-size:14px}
 .gold{color:var(--gold)}
-.quote{font-family:var(--serif);font-style:italic;font-size:22px;color:var(--gold)}
+.quote{font-family:var(--italic);font-style:italic;font-size:22px;color:var(--gold)}
 em{font-style:italic}
 
 /* ---------- кнопки ---------- */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:12px 24px;border-radius:var(--radius);font:600 14px/1.2 var(--sans);letter-spacing:.02em;text-decoration:none;border:1px solid transparent;transition:background .2s,color .2s,border-color .2s;cursor:pointer;text-align:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:14px 28px;border-radius:0;font:600 11px/1.2 var(--sans);letter-spacing:.16em;text-transform:uppercase;text-decoration:none;border:1px solid transparent;transition:background .2s,color .2s,border-color .2s;cursor:pointer;text-align:center}
 .btn--gold{background:var(--gold);color:#fff}
 .btn--gold:hover{background:#a7854c}
 .btn--green{background:var(--green);color:#fff}
@@ -52,10 +54,10 @@ em{font-style:italic}
 .header__inner{display:flex;align-items:center;gap:28px;height:var(--header-h)}
 .header__logo img{width:auto;height:56px}
 .nav{display:flex;gap:20px;flex:1;justify-content:center}
-.nav a{font-size:13px;text-decoration:none;color:var(--ink);white-space:nowrap;padding:6px 0;border-bottom:1px solid transparent}
+.nav a{font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.12em;text-decoration:none;color:var(--ink);white-space:nowrap;padding:6px 0;border-bottom:1px solid transparent}
 .nav a:hover{border-bottom-color:var(--gold)}
 .nav__wa{display:none}
-.header__cta{min-height:40px;padding:10px 18px;font-size:13px}
+.header__cta{min-height:42px;padding:10px 20px;font-size:11px}
 .burger{display:none;margin-left:auto;width:44px;height:44px;border:0;background:none;padding:10px;cursor:pointer}
 .burger span{display:block;height:1.5px;background:var(--green);margin:6px 0;transition:transform .25s,opacity .25s}
 .burger[aria-expanded="true"] span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
@@ -78,7 +80,7 @@ em{font-style:italic}
 /* ---------- цифры ---------- */
 .stats{background:var(--green);color:#fff;padding:54px 0}
 .stats__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
-.stat__num{font-family:var(--serif);font-size:44px;color:var(--gold-light);line-height:1.1}
+.stat__num{font-family:var(--serif);font-size:44px;letter-spacing:.04em;color:var(--gold-light);line-height:1.1}
 .stat__label{font-size:13px;color:#D8DACB;margin-top:6px}
 
 /* ---------- слайдер ---------- */
@@ -91,8 +93,10 @@ em{font-style:italic}
 .slide--cream{background:#E8D6B4}
 .slide--green{background:#243220}
 .slide--ph{display:flex;align-items:center;justify-content:center;background:repeating-linear-gradient(135deg,var(--sage-2) 0 14px,#E7EADC 14px 28px);color:var(--muted);font-size:13px;text-align:center;padding:20px}
-.slider--tall{aspect-ratio:6/7}
+.slider--tall{aspect-ratio:5/7}
 .slider--portrait{aspect-ratio:9/11}
+/* арочный верх у вертикальных фото — как своды в бутике */
+.slider--tall,.slider--portrait{border-radius:999px 999px var(--radius) var(--radius)}
 .slider--wide{aspect-ratio:4/3}
 .slider--card{aspect-ratio:16/10;border-radius:var(--radius) var(--radius) 0 0}
 .slider__btn{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border-radius:50%;border:0;background:rgba(250,247,240,.9);color:var(--green);cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 10px rgba(0,0,0,.12);transition:background .2s,color .2s}
@@ -109,7 +113,7 @@ em{font-style:italic}
 .city{display:grid;grid-template-columns:72px 1fr;gap:20px;align-items:center;padding:20px;background:var(--green);border-radius:var(--radius);color:#E3E5D8}
 .city p{margin:0;font-size:14px}
 .city__icon{width:72px;height:72px;object-fit:contain}
-.city__name{font-family:var(--serif);font-size:24px;color:#fff;margin-bottom:4px}
+.city__name{font-family:var(--serif);font-size:20px;text-transform:uppercase;letter-spacing:.06em;color:#fff;margin-bottom:4px}
 .city .gold{color:var(--gold-light)}
 .brandline{font-family:var(--serif);font-size:20px;color:var(--green);line-height:1.5}
 
@@ -120,7 +124,7 @@ em{font-style:italic}
 .product__img{aspect-ratio:1;display:flex;align-items:center;justify-content:center}
 .ph{background:repeating-linear-gradient(135deg,var(--sage) 0 14px,#F3F4EC 14px 28px);color:var(--muted);font-size:12px}
 .product__body{padding:16px}
-.product__brand{font-family:var(--serif);font-size:21px;color:var(--green);line-height:1.15}
+.product__brand{font-family:var(--serif);font-size:17px;text-transform:uppercase;letter-spacing:.06em;color:var(--green);line-height:1.15}
 .product__name{font-size:13px;color:var(--muted);margin-top:4px}
 .buy{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:36px}
 .buy__label{font-weight:600;margin-right:6px}
@@ -141,7 +145,7 @@ em{font-style:italic}
 /* ---------- косметология ---------- */
 .procs{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:8px 0 24px}
 .proc{border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px;background:#fff}
-.proc__name{font-family:var(--serif);font-size:20px;color:var(--green)}
+.proc__name{font-family:var(--serif);font-size:16px;text-transform:uppercase;letter-spacing:.06em;color:var(--green)}
 .proc__type{font-size:12px;color:var(--muted)}
 
 /* ---------- аптека ---------- */
@@ -156,7 +160,7 @@ em{font-style:italic}
 .footer__hours{margin:0 0 14px}
 .footer__social{display:inline-flex;align-items:center;gap:10px;color:var(--gold-light);font-weight:600}
 .footer__social:hover{color:#fff}
-.footer__label{font-family:var(--serif);font-size:22px;color:#fff;margin-bottom:6px}
+.footer__label{font-family:var(--serif);font-size:18px;text-transform:uppercase;letter-spacing:.08em;color:#fff;margin-bottom:6px}
 .footer__city p{margin:0 0 6px;color:#B9BEAC}
 .footer__phone{font-size:16px;font-weight:600;color:var(--gold-light)}
 .footer__phone:hover{color:#fff}
@@ -184,7 +188,7 @@ em{font-style:italic}
   .split > .slider{order:-1}
   .hero__grid .slider{order:-1;aspect-ratio:4/3}
   .stats__grid{grid-template-columns:repeat(2,1fr);row-gap:32px}
-  .stat__num{font-size:36px}
+  .stat__num{font-size:34px}
   .footer__grid{grid-template-columns:1fr 1fr}
   .footer__brand{grid-column:1/-1}
   .slider__btn{width:36px;height:36px}
@@ -194,7 +198,7 @@ em{font-style:italic}
   .container{padding:0 16px}
   .products{grid-template-columns:repeat(2,1fr);gap:12px}
   .product__body{padding:12px}
-  .product__brand{font-size:18px}
+  .product__brand{font-size:15px}
   .procs{grid-template-columns:1fr}
   .buy .btn,.btns .btn{width:100%}
   .footer__grid{grid-template-columns:1fr;gap:28px}
