@@ -7,6 +7,8 @@ var CONFIG = {
   whatsappText: 'Здравствуйте! Пишу с сайта telli.kz',
   links: {
     kaspi: 'https://l.kaspi.kz/shop/98tx2FT8QUjR7jj', // магазин TELLI на Kaspi.kz
+    wb: 'https://global.wildberries.ru/catalog/krasota/tags/telli-kosmetika', // TELLI на Wildberries
+    ozon: 'https://ozon.kz/brand/telli-101880001/', // TELLI на Ozon
     instagram: '',  // https://instagram.com/...
     arnica: '',     // меню / бронирование ARNICA
     tiktok: '',     // https://www.tiktok.com/@...
