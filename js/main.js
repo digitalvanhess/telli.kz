@@ -6,7 +6,7 @@ var CONFIG = {
   whatsapp: '77015753312',
   whatsappText: 'Здравствуйте! Пишу с сайта telli.kz',
   links: {
-    kaspi: '',      // магазин TELLI на Kaspi.kz
+    kaspi: 'https://l.kaspi.kz/shop/98tx2FT8QUjR7jj', // магазин TELLI на Kaspi.kz
     instagram: '',  // https://instagram.com/...
     arnica: '',     // меню / бронирование ARNICA
     tiktok: '',     // https://www.tiktok.com/@...
@@ -31,6 +31,19 @@ var CONFIG = {
   document.querySelectorAll('[data-link]').forEach(function (a) {
     var url = CONFIG.links[a.getAttribute('data-link')];
     if (url) a.href = url;
+  });
+
+  /* --- Внешние кнопки без ссылки (href="#") прячем, чтобы не кидали наверх --- */
+  document.querySelectorAll('a[target="_blank"][href="#"]').forEach(function (a) {
+    a.hidden = true;
+  });
+  document.querySelectorAll('.market').forEach(function (m) {
+    if (!m.querySelector('a:not([hidden])')) m.hidden = true;
+  });
+  /* карточки брендов без ссылки — просто не реагируют на клик */
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a[href="#"]');
+    if (a) e.preventDefault();
   });
 
   /* --- Бургер-меню --- */

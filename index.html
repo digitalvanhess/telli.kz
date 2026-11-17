@@ -1,345 +1,800 @@
 <!doctype html>
 <html lang="ru">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>TELLI — Premium Concept Boutique · Алматы и Астана</title>
-<meta name="description" content="TELLI — концепт-бутик здоровья и красоты в Алматы и Астане: косметика, гомеопатическая аптека, косметологический кабинет, органик-кафе. С 2008 года.">
-<meta property="og:title" content="TELLI — Premium Concept Boutique">
-<meta property="og:description" content="Естественная красота в ритме большого города. Алматы и Астана.">
-<meta property="og:image" content="img/boutique.webp">
-<link rel="icon" href="img/favicon.png">
-<link rel="apple-touch-icon" href="img/favicon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Forum&family=Montserrat:wght@400;500;600&family=Cormorant+Garamond:ital,wght@1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-
-<!-- ============ ШАПКА ============ -->
-<header class="header" id="top">
-  <div class="container header__inner">
-    <a href="#top" class="header__logo" aria-label="TELLI — на главную"><img src="img/logo-green.png" alt="TELLI" width="225" height="240"></a>
-    <nav class="nav" id="nav" aria-label="Разделы">
-      <a href="#about">О TELLI</a>
-      <a href="#founder">Основатель</a>
-      <a href="#brands">Каталог</a>
-      <a href="#kz">Made in Kazakhstan</a>
-      <a href="#pharmacy">Аптека</a>
-      <a href="#cosmetology">Косметология</a>
-      <a href="#cafe">Кафе</a>
-      <a href="#arnica">ARNICA</a>
-      <a href="#footer" class="nav__wa js-wa">Написать в WhatsApp</a>
-    </nav>
-    <a href="#footer" class="btn btn--gold header__cta js-wa">Написать в WhatsApp</a>
-    <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
-  </div>
-</header>
-
-<main>
-
-<!-- ============ ПЕРВЫЙ ЭКРАН ============ -->
-<section class="hero">
-  <div class="container hero__grid">
-    <div class="hero__text">
-      <h1 class="h1">Естественная красота в&nbsp;ритме большого города</h1>
-      <span class="rule"></span>
-      <p class="lead">Концепция TELLI строится вокруг здоровья, красоты и осознанного образа жизни. В её основе — принцип <em>inside out</em>: «красота изнутри».</p>
-      <p>Наша цель — отвечать ожиданиям даже самых взыскательных клиентов. Все бренды объединяют справедливую цену, чистые составы, подтверждённую эффективность и экологичный подход.</p>
-      <p>Сегодня концепт TELLI встречает уже второе поколение клиентов — детей наших первых покупателей.</p>
-    </div>
-    <div class="slider slider--tall" data-autoplay="5000">
-      <div class="slider__track">
-        <figure class="slide"><img src="img/boutique.webp" alt="Бутик TELLI в Алматы"></figure>
-        <figure class="slide"><img src="img/interior-1.webp" alt="Интерьер бутика TELLI в Алматы" loading="lazy"></figure>
-        <figure class="slide"><img src="img/interior-2.webp" alt="Витрины с косметикой в бутике TELLI" loading="lazy"></figure>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TELLI — Premium Concept Boutique · Алматы и Астана</title>
+    <meta
+      name="description"
+      content="TELLI — концепт-бутик здоровья и красоты в Алматы и Астане: косметика, гомеопатическая аптека, косметологический кабинет, органик-кафе. С 2008 года."
+    />
+    <meta property="og:title" content="TELLI — Premium Concept Boutique" />
+    <meta
+      property="og:description"
+      content="Естественная красота в ритме большого города. Алматы и Астана."
+    />
+    <meta property="og:image" content="img/boutique.webp" />
+    <link rel="icon" href="img/favicon.png" />
+    <link rel="apple-touch-icon" href="img/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Forum&family=Montserrat:wght@400;500;600&family=Cormorant+Garamond:ital,wght@1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- ============ ШАПКА ============ -->
+    <header class="header" id="top">
+      <div class="container header__inner">
+        <a href="#top" class="header__logo" aria-label="TELLI — на главную"
+          ><img src="img/logo-green.png" alt="TELLI" width="225" height="240"
+        /></a>
+        <nav class="nav" id="nav" aria-label="Разделы">
+          <a href="#about">О TELLI</a>
+          <a href="#founder">Основатель</a>
+          <a href="#brands">Каталог</a>
+          <a href="#kz">Made in Kazakhstan</a>
+          <a href="#pharmacy">Аптека</a>
+          <a href="#cosmetology">Косметология</a>
+          <a href="#cafe">Кафе</a>
+          <a href="#arnica">ARNICA</a>
+          <a href="#footer" class="nav__wa js-wa">Написать в WhatsApp</a>
+        </nav>
+        <a href="#footer" class="btn btn--gold header__cta js-wa"
+          >Написать в WhatsApp</a
+        >
+        <button
+          class="burger"
+          id="burger"
+          aria-label="Меню"
+          aria-expanded="false"
+          aria-controls="nav"
+        >
+          <span></span><span></span><span></span>
+        </button>
       </div>
-    </div>
-  </div>
-</section>
+    </header>
 
-<!-- ============ ЦИФРЫ ============ -->
-<section class="stats">
-  <div class="container stats__grid">
-    <div class="stat"><div class="stat__num">с 2008</div><div class="stat__label">года на рынке</div></div>
-    <div class="stat"><div class="stat__num">70+</div><div class="stat__label">международных брендов</div></div>
-    <div class="stat"><div class="stat__num">1 100 м²</div><div class="stat__label">розничных пространств</div></div>
-    <div class="stat"><div class="stat__num">2 города</div><div class="stat__label">Алматы и Астана</div></div>
-  </div>
-</section>
-
-<!-- ============ ОСНОВАТЕЛЬ ============ -->
-<section class="section" id="founder">
-  <div class="container split">
-    <div class="slider slider--portrait">
-      <div class="slider__track">
-        <figure class="slide"><img src="img/founder.webp" alt="Асель Тасмагамбетова, основатель TELLI" loading="lazy"></figure>
-      </div>
-    </div>
-    <div class="split__text">
-      <div class="eyebrow">Основатель</div>
-      <h2 class="h2">Асель Тасмагамбетова</h2>
-      <span class="rule"></span>
-      <p>В 2008 году открыла первую гомеопатическую аптеку в Казахстане с собственным производством и лично отбирала органические и докторские бренды.</p>
-      <p>Эколог по образованию, руководитель холдинга: фонд SABY, Центрально-Азиатский институт экологических исследований, школа имени Шокана Уалиханова и завод TELLI ONDIRIS.</p>
-      <p class="quote">Забота о человеке, обществе и окружающей среде.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ============ О КОМПАНИИ (новый блок, слайд 4 презентации) ============ -->
-<section class="section section--line" id="about">
-  <div class="container">
-    <div class="eyebrow">О компании</div>
-    <h2 class="h2">Розница и портфель брендов</h2>
-    <span class="rule"></span>
-    <div class="about">
-      <div class="about__text">
-        <p class="lead">TELLI располагает двумя собственными бутиками в крупнейших городах Казахстана — Алматы и Астане, в премиальных локациях. Общая площадь розничных пространств — 1 100 м².</p>
-        <div class="cities">
-          <div class="city">
-            <img src="img/city-almaty.png" alt="" class="city__icon" loading="lazy">
-            <div><div class="city__name">Алматы · <span class="gold">850 м²</span></div>
-            <p>Флагманский концепт-стор: beauty-бутик, косметологический кабинет, органическое кафе и другие направления экосистемы TELLI.</p></div>
+    <main>
+      <!-- ============ ПЕРВЫЙ ЭКРАН ============ -->
+      <section class="hero">
+        <div class="container hero__grid">
+          <div class="hero__text">
+            <h1 class="h1">
+              Естественная красота в&nbsp;ритме большого города
+            </h1>
+            <span class="rule"></span>
+            <p class="lead">
+              Концепция TELLI строится вокруг здоровья, красоты и осознанного
+              образа жизни. В её основе — принцип <em>inside out</em>: «красота
+              изнутри».
+            </p>
+            <p>
+              Наша цель — отвечать ожиданиям даже самых взыскательных клиентов.
+              Все бренды объединяют справедливую цену, чистые составы,
+              подтверждённую эффективность и экологичный подход.
+            </p>
+            <p>
+              Сегодня концепт TELLI встречает уже второе поколение клиентов —
+              детей наших первых покупателей.
+            </p>
           </div>
-          <div class="city">
-            <img src="img/city-astana.png" alt="" class="city__icon" loading="lazy">
-            <div><div class="city__name">Астана · <span class="gold">250 м²</span></div>
-            <p>Бутик в премиальной локации столицы.</p></div>
+          <div class="slider slider--tall" data-autoplay="5000">
+            <div class="slider__track">
+              <figure class="slide">
+                <img src="img/boutique.webp" alt="Бутик TELLI в Алматы" />
+              </figure>
+              <figure class="slide">
+                <img
+                  src="img/interior-1.webp"
+                  alt="Интерьер бутика TELLI в Алматы"
+                  loading="lazy"
+                />
+              </figure>
+              <figure class="slide">
+                <img
+                  src="img/interior-2.webp"
+                  alt="Витрины с косметикой в бутике TELLI"
+                  loading="lazy"
+                />
+              </figure>
+            </div>
           </div>
         </div>
-        <p>С 2008 года TELLI официально представила на рынке Казахстана более 70 международных брендов, работая по прямым контрактам с производителями. В разные годы в портфеле были:</p>
-        <p class="brandline">Erbaviva · Rodial · RéVive · Dr. Murad · Sensai · Oribe · Dr. Sebagh · BECCA · Joëlle Ciocco · Aesop · REN</p>
-      </div>
-      <div class="slider slider--wide" data-autoplay="6000">
-        <div class="slider__track">
-          <figure class="slide"><img src="img/shelves-2.webp" alt="Бутик TELLI в Алматы, витрины с брендами" loading="lazy"></figure>
-          <figure class="slide"><img src="img/interior-2.webp" alt="Бутик TELLI в Алматы" loading="lazy"></figure>
-          <div class="slide slide--ph"><span>Фото бутика в Астане</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+      </section>
 
-<!-- ============ БРЕНДЫ ============ -->
-<section class="section section--sage" id="brands">
-  <div class="container">
-    <div class="eyebrow">Каталог</div>
-    <h2 class="h2">Бренды в бутике TELLI</h2>
-    <span class="rule"></span>
-    <p class="sub">Один бренд — одно товарное предложение. Полный ассортимент — на Kaspi.kz или у нашего менеджера.</p>
-    <div class="products">
-      <!-- ссылка href у карточки: товар на Kaspi -->
-      <a class="product" href="#"><div class="product__img ph">600×600</div><div class="product__body"><div class="product__brand">Sodashi</div><div class="product__name">[Название продукта]</div></div></a>
-      <a class="product" href="#"><div class="product__img ph">600×600</div><div class="product__body"><div class="product__brand">Bakel</div><div class="product__name">[Название продукта]</div></div></a>
-      <a class="product" href="#"><div class="product__img ph">600×600</div><div class="product__body"><div class="product__brand">Skin Design London</div><div class="product__name">[Название продукта]</div></div></a>
-      <a class="product" href="#"><div class="product__img ph">600×600</div><div class="product__body"><div class="product__brand">Mor</div><div class="product__name">[Название продукта]</div></div></a>
-      <a class="product" href="#"><div class="product__img ph">600×600</div><div class="product__body"><div class="product__brand">R&amp;Co</div><div class="product__name">[Название продукта]</div></div></a>
-      <a class="product" href="#"><div class="product__img ph">600×600</div><div class="product__body"><div class="product__brand">Aesop</div><div class="product__name">[Название продукта]</div></div></a>
-      <a class="product" href="#"><div class="product__img ph">600×600</div><div class="product__body"><div class="product__brand">KWC</div><div class="product__name">[Название продукта]</div></div></a>
-      <a class="product" href="#"><div class="product__img ph">600×600</div><div class="product__body"><div class="product__brand">One Size</div><div class="product__name">[Название продукта]</div></div></a>
-      <a class="product" href="#"><div class="product__img ph">600×600</div><div class="product__body"><div class="product__brand">Rahua</div><div class="product__name">[Название продукта]</div></div></a>
-      <a class="product" href="#"><div class="product__img ph">600×600</div><div class="product__body"><div class="product__brand">Mariage</div><div class="product__name">[Название продукта]</div></div></a>
-    </div>
-    <div class="buy">
-      <span class="buy__label">Купить онлайн:</span>
-      <a class="btn btn--green" href="#" data-link="kaspi" target="_blank" rel="noopener">Kaspi.kz</a>
-      <a class="btn btn--outline js-wa" href="#footer">Написать менеджеру в WhatsApp</a>
-    </div>
-  </div>
-</section>
-
-<!-- ============ MADE IN KAZAKHSTAN ============ -->
-<section class="section" id="kz">
-  <div class="container">
-    <div class="eyebrow">Made in Kazakhstan</div>
-    <h2 class="h2">Казахстанская косметика</h2>
-    <span class="rule"></span>
-    <div class="kz">
-      <article class="kz__card">
-        <div class="slider slider--card">
-          <div class="slider__track">
-            <figure class="slide slide--contain slide--cream"><img src="img/asiya.webp" alt="Натуральная уходовая косметика ASIYA" loading="lazy"></figure>
+      <!-- ============ ЦИФРЫ ============ -->
+      <section class="stats">
+        <div class="container stats__grid">
+          <div class="stat">
+            <div class="stat__num">с 2008</div>
+            <div class="stat__label">года на рынке</div>
+          </div>
+          <div class="stat">
+            <div class="stat__num">70+</div>
+            <div class="stat__label">международных брендов</div>
+          </div>
+          <div class="stat">
+            <div class="stat__num">1 100 м²</div>
+            <div class="stat__label">розничных пространств</div>
+          </div>
+          <div class="stat">
+            <div class="stat__num">2 города</div>
+            <div class="stat__label">Алматы и Астана</div>
           </div>
         </div>
-        <div class="kz__body">
-          <h3 class="h3">Asiya</h3>
-          <p>[Короткое описание бренда — текст позже]</p>
-          <div class="market">
-            <span class="market__label">Купить на</span>
-            <a class="mk mk--kaspi" href="#" target="_blank" rel="noopener" aria-label="Asiya на Kaspi.kz">Kaspi</a>
-            <a class="mk mk--wb" href="#" target="_blank" rel="noopener" aria-label="Asiya на Wildberries">WB</a>
-            <a class="mk mk--ozon" href="#" target="_blank" rel="noopener" aria-label="Asiya на Ozon">Ozon</a>
+      </section>
+
+      <!-- ============ ОСНОВАТЕЛЬ ============ -->
+      <section class="section" id="founder">
+        <div class="container split">
+          <div class="slider slider--portrait">
+            <div class="slider__track">
+              <figure class="slide">
+                <img
+                  src="img/founder.webp"
+                  alt="Асель Тасмагамбетова, основатель TELLI"
+                  loading="lazy"
+                />
+              </figure>
+            </div>
+          </div>
+          <div class="split__text">
+            <div class="eyebrow">Основатель</div>
+            <h2 class="h2">Асель Тасмагамбетова</h2>
+            <span class="rule"></span>
+            <p>
+              В 2008 году открыла первую гомеопатическую аптеку в Казахстане с
+              собственным производством и лично отбирала органические и
+              докторские бренды.
+            </p>
+            <p>
+              Эколог по образованию, руководитель холдинга: фонд SABY,
+              Центрально-Азиатский институт экологических исследований, школа
+              имени Шокана Уалиханова и завод TELLI ONDIRIS.
+            </p>
+            <p class="quote">Забота о человеке, обществе и окружающей среде.</p>
           </div>
         </div>
-      </article>
-      <article class="kz__card">
-        <div class="slider slider--card">
-          <div class="slider__track">
-            <figure class="slide slide--contain slide--green"><img src="img/telli-kz.webp" alt="Косметика TELLI, сделано в Казахстане" loading="lazy"></figure>
+      </section>
+
+      <!-- ============ О КОМПАНИИ (новый блок, слайд 4 презентации) ============ -->
+      <section class="section section--line" id="about">
+        <div class="container">
+          <div class="eyebrow">О компании</div>
+          <h2 class="h2">Розница и портфель брендов</h2>
+          <span class="rule"></span>
+          <div class="about">
+            <div class="about__text">
+              <p class="lead">
+                TELLI располагает двумя собственными бутиками в крупнейших
+                городах Казахстана — Алматы и Астане, в премиальных локациях.
+                Общая площадь розничных пространств — 1 100 м².
+              </p>
+              <div class="cities">
+                <div class="city">
+                  <img
+                    src="img/city-almaty.png"
+                    alt=""
+                    class="city__icon"
+                    loading="lazy"
+                  />
+                  <div>
+                    <div class="city__name">
+                      Алматы · <span class="gold">850 м²</span>
+                    </div>
+                    <p>
+                      Флагманский концепт-стор: beauty-бутик, косметологический
+                      кабинет, органическое кафе и другие направления экосистемы
+                      TELLI.
+                    </p>
+                  </div>
+                </div>
+                <div class="city">
+                  <img
+                    src="img/city-astana.png"
+                    alt=""
+                    class="city__icon"
+                    loading="lazy"
+                  />
+                  <div>
+                    <div class="city__name">
+                      Астана · <span class="gold">250 м²</span>
+                    </div>
+                    <p>Бутик в премиальной локации столицы.</p>
+                  </div>
+                </div>
+              </div>
+              <p>
+                С 2008 года TELLI официально представила на рынке Казахстана
+                более 70 международных брендов, работая по прямым контрактам с
+                производителями. В разные годы в портфеле были:
+              </p>
+              <p class="brandline">
+                Erbaviva · Rodial · RéVive · Dr. Murad · Sensai · Oribe · Dr.
+                Sebagh · BECCA · Joëlle Ciocco · Aesop · REN
+              </p>
+            </div>
+            <div class="slider slider--wide" data-autoplay="6000">
+              <div class="slider__track">
+                <figure class="slide">
+                  <img
+                    src="img/shelves-2.webp"
+                    alt="Бутик TELLI в Алматы, витрины с брендами"
+                    loading="lazy"
+                  />
+                </figure>
+                <figure class="slide">
+                  <img
+                    src="img/interior-2.webp"
+                    alt="Бутик TELLI в Алматы"
+                    loading="lazy"
+                  />
+                </figure>
+                <div class="slide slide--ph">
+                  <span>Фото бутика в Астане</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="kz__body">
-          <h3 class="h3">TELLI</h3>
-          <p>[Короткое описание бренда — текст позже]</p>
-          <div class="market">
-            <span class="market__label">Купить на</span>
-            <a class="mk mk--kaspi" href="#" target="_blank" rel="noopener" aria-label="TELLI на Kaspi.kz">Kaspi</a>
-            <a class="mk mk--wb" href="#" target="_blank" rel="noopener" aria-label="TELLI на Wildberries">WB</a>
-            <a class="mk mk--ozon" href="#" target="_blank" rel="noopener" aria-label="TELLI на Ozon">Ozon</a>
+      </section>
+
+      <!-- ============ БРЕНДЫ ============ -->
+      <section class="section section--sage" id="brands">
+        <div class="container">
+          <div class="eyebrow">Каталог</div>
+          <h2 class="h2">Бренды в бутике TELLI</h2>
+          <span class="rule"></span>
+          <p class="sub">
+            Один бренд — одно товарное предложение. Полный ассортимент — на
+            Kaspi.kz или у нашего менеджера.
+          </p>
+          <div class="products">
+            <!-- ссылка href у карточки: товар на Kaspi -->
+            <a class="product" href="#"
+              ><div class="product__img ph">600×600</div>
+              <div class="product__body">
+                <div class="product__brand">Sodashi</div>
+                <div class="product__name">[Название продукта]</div>
+              </div></a
+            >
+            <a class="product" href="#"
+              ><div class="product__img ph">600×600</div>
+              <div class="product__body">
+                <div class="product__brand">Bakel</div>
+                <div class="product__name">[Название продукта]</div>
+              </div></a
+            >
+            <a class="product" href="#"
+              ><div class="product__img ph">600×600</div>
+              <div class="product__body">
+                <div class="product__brand">Skin Design London</div>
+                <div class="product__name">[Название продукта]</div>
+              </div></a
+            >
+            <a class="product" href="#"
+              ><div class="product__img ph">600×600</div>
+              <div class="product__body">
+                <div class="product__brand">Mor</div>
+                <div class="product__name">[Название продукта]</div>
+              </div></a
+            >
+            <a class="product" href="#"
+              ><div class="product__img ph">600×600</div>
+              <div class="product__body">
+                <div class="product__brand">R&amp;Co</div>
+                <div class="product__name">[Название продукта]</div>
+              </div></a
+            >
+            <a class="product" href="#"
+              ><div class="product__img ph">600×600</div>
+              <div class="product__body">
+                <div class="product__brand">Aesop</div>
+                <div class="product__name">[Название продукта]</div>
+              </div></a
+            >
+            <a class="product" href="#"
+              ><div class="product__img ph">600×600</div>
+              <div class="product__body">
+                <div class="product__brand">KWC</div>
+                <div class="product__name">[Название продукта]</div>
+              </div></a
+            >
+            <a class="product" href="#"
+              ><div class="product__img ph">600×600</div>
+              <div class="product__body">
+                <div class="product__brand">One Size</div>
+                <div class="product__name">[Название продукта]</div>
+              </div></a
+            >
+            <a class="product" href="#"
+              ><div class="product__img ph">600×600</div>
+              <div class="product__body">
+                <div class="product__brand">Rahua</div>
+                <div class="product__name">[Название продукта]</div>
+              </div></a
+            >
+            <a class="product" href="#"
+              ><div class="product__img ph">600×600</div>
+              <div class="product__body">
+                <div class="product__brand">Mariage</div>
+                <div class="product__name">[Название продукта]</div>
+              </div></a
+            >
+          </div>
+          <div class="buy">
+            <span class="buy__label">Купить онлайн:</span>
+            <a
+              class="btn btn--green"
+              href="#"
+              data-link="kaspi"
+              target="_blank"
+              rel="noopener"
+              >Kaspi.kz</a
+            >
+            <a class="btn btn--outline js-wa" href="#footer"
+              >Написать менеджеру в WhatsApp</a
+            >
           </div>
         </div>
-      </article>
-    </div>
-  </div>
-</section>
+      </section>
 
-<!-- ============ 01 АПТЕКА ============ -->
-<section class="section section--sage" id="pharmacy">
-  <div class="container split split--rev">
-    <div class="split__text">
-      <div class="eyebrow">Направление 01</div>
-      <h2 class="h2">Гомеопатическая аптека</h2>
-      <span class="rule"></span>
-      <p>Собственное производство и уникальная библиотека гомеопатических разведений — более 5 000 наименований.</p>
-      <p>В ассортименте также готовые лекарственные препараты и биологически активные добавки.</p>
-      <div class="bignum"><span>5 000+</span> разведений</div>
-    </div>
-    <div class="slider slider--wide" data-autoplay="5500">
-      <div class="slider__track">
-        <figure class="slide"><img src="img/pharmacy-1.webp" alt="Аптека TELLI: витрины с препаратами" loading="lazy"></figure>
-        <figure class="slide"><img src="img/pharmacy-2.webp" alt="Аптека TELLI: раздел «Иммунитет»" loading="lazy"></figure>
-        <figure class="slide"><img src="img/pharmacy-3.webp" alt="Аптека TELLI: витамины и БАД" loading="lazy"></figure>
-        <figure class="slide"><img src="img/pharmacy-4.webp" alt="Аптека TELLI: раздел «Пробиотики»" loading="lazy"></figure>
-        <figure class="slide"><img src="img/pharmacy-5.webp" alt="Аптека TELLI: препараты Quinton" loading="lazy"></figure>
-      </div>
-    </div>
-  </div>
-</section>
+      <!-- ============ MADE IN KAZAKHSTAN ============ -->
+      <section class="section" id="kz">
+        <div class="container">
+          <div class="eyebrow">Made in Kazakhstan</div>
+          <h2 class="h2">Казахстанская косметика</h2>
+          <span class="rule"></span>
+          <div class="kz">
+            <article class="kz__card">
+              <div class="slider slider--card">
+                <div class="slider__track">
+                  <figure class="slide slide--contain slide--cream">
+                    <img
+                      src="img/asiya.webp"
+                      alt="Натуральная уходовая косметика ASIYA"
+                      loading="lazy"
+                    />
+                  </figure>
+                </div>
+              </div>
+              <div class="kz__body">
+                <h3 class="h3">Asiya</h3>
+                <p>[Короткое описание бренда — текст позже]</p>
+                <div class="market">
+                  <span class="market__label">Купить на</span>
+                  <a
+                    class="mk mk--kaspi"
+                    href="#"
+                    target="_blank"
+                    rel="noopener"
+                    aria-label="Asiya на Kaspi.kz"
+                    ><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8h12l-1 12H7L6 8zM9 8V6.5a3 3 0 0 1 6 0V8"/></svg><span>Kaspi.kz</span></a
+                  >
+                  <a
+                    class="mk mk--wb"
+                    href="#"
+                    target="_blank"
+                    rel="noopener"
+                    aria-label="Asiya на Wildberries"
+                    ><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8h12l-1 12H7L6 8zM9 8V6.5a3 3 0 0 1 6 0V8"/></svg><span>Wildberries</span></a
+                  >
+                  <a
+                    class="mk mk--ozon"
+                    href="#"
+                    target="_blank"
+                    rel="noopener"
+                    aria-label="Asiya на Ozon"
+                    ><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8h12l-1 12H7L6 8zM9 8V6.5a3 3 0 0 1 6 0V8"/></svg><span>Ozon</span></a
+                  >
+                </div>
+              </div>
+            </article>
+            <article class="kz__card">
+              <div class="slider slider--card">
+                <div class="slider__track">
+                  <figure class="slide slide--contain slide--green">
+                    <img
+                      src="img/telli-kz.webp"
+                      alt="Косметика TELLI, сделано в Казахстане"
+                      loading="lazy"
+                    />
+                  </figure>
+                </div>
+              </div>
+              <div class="kz__body">
+                <h3 class="h3">TELLI</h3>
+                <p>[Короткое описание бренда — текст позже]</p>
+                <div class="market">
+                  <span class="market__label">Купить на</span>
+                  <a
+                    class="mk mk--kaspi"
+                    href="https://l.kaspi.kz/shop/98tx2FT8QUjR7jj"
+                    target="_blank"
+                    rel="noopener"
+                    aria-label="TELLI на Kaspi.kz"
+                    ><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8h12l-1 12H7L6 8zM9 8V6.5a3 3 0 0 1 6 0V8"/></svg><span>Kaspi.kz</span></a
+                  >
+                  <a
+                    class="mk mk--wb"
+                    href="https://global.wildberries.ru/catalog/krasota/tags/telli-kosmetika"
+                    target="_blank"
+                    rel="noopener"
+                    aria-label="TELLI на Wildberries"
+                    ><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8h12l-1 12H7L6 8zM9 8V6.5a3 3 0 0 1 6 0V8"/></svg><span>Wildberries</span></a
+                  >
+                  <a
+                    class="mk mk--ozon"
+                    href="https://ozon.kz/brand/telli-101880001/"
+                    target="_blank"
+                    rel="noopener"
+                    aria-label="TELLI на Ozon"
+                    ><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8h12l-1 12H7L6 8zM9 8V6.5a3 3 0 0 1 6 0V8"/></svg><span>Ozon</span></a
+                  >
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
 
-<!-- ============ 02 КОСМЕТОЛОГИЯ (тёмно-зелёный акцент) ============ -->
-<section class="section" id="cosmetology">
-  <div class="container split">
-    <div class="slider slider--portrait" data-autoplay="5000">
-      <div class="slider__track">
-        <figure class="slide"><img src="img/cosmetology-2.webp" alt="Косметологический кабинет TELLI, аппаратная косметология" loading="lazy"></figure>
-        <figure class="slide"><img src="img/cosmetology-1.webp" alt="Косметологический кабинет TELLI" loading="lazy"></figure>
-      </div>
-    </div>
-    <div class="split__text">
-      <div class="eyebrow">Направление 02</div>
-      <h2 class="h2">Косметологический кабинет</h2>
-      <span class="rule"></span>
-      <p>Дипломированные врачи-дерматологи и косметологи проводят современные anti-age процедуры.</p>
-      <div class="procs">
-        <div class="proc"><div class="proc__name">Ultraformer III</div><div class="proc__type">Аппаратная процедура</div></div>
-        <div class="proc"><div class="proc__name">Scarlet RF</div><div class="proc__type">Аппаратная процедура</div></div>
-        <div class="proc"><div class="proc__name">Ulthera</div><div class="proc__type">Аппаратная процедура</div></div>
-        <div class="proc"><div class="proc__name">Массаж Жоэль Сиокко</div><div class="proc__type">Скульптурирующий массаж лица</div></div>
-      </div>
-      <p>Уходовые программы на профессиональной косметике Sodashi, Bakel и Skin Design London.</p>
-      <a class="btn btn--green js-wa" href="#footer">Записаться через WhatsApp</a>
-    </div>
-  </div>
-</section>
+      <!-- ============ 01 АПТЕКА ============ -->
+      <section class="section section--sage" id="pharmacy">
+        <div class="container split split--rev">
+          <div class="split__text">
+            <div class="eyebrow">Направление 01</div>
+            <h2 class="h2">Гомеопатическая аптека</h2>
+            <span class="rule"></span>
+            <p>
+              Собственное производство и уникальная библиотека гомеопатических
+              разведений — более 5 000 наименований.
+            </p>
+            <p>
+              В ассортименте также готовые лекарственные препараты и
+              биологически активные добавки.
+            </p>
+            <div class="bignum"><span>5 000+</span> разведений</div>
+          </div>
+          <div class="slider slider--wide" data-autoplay="5500">
+            <div class="slider__track">
+              <figure class="slide">
+                <img
+                  src="img/pharmacy-1.webp"
+                  alt="Аптека TELLI: витрины с препаратами"
+                  loading="lazy"
+                />
+              </figure>
+              <figure class="slide">
+                <img
+                  src="img/pharmacy-2.webp"
+                  alt="Аптека TELLI: раздел «Иммунитет»"
+                  loading="lazy"
+                />
+              </figure>
+              <figure class="slide">
+                <img
+                  src="img/pharmacy-3.webp"
+                  alt="Аптека TELLI: витамины и БАД"
+                  loading="lazy"
+                />
+              </figure>
+              <figure class="slide">
+                <img
+                  src="img/pharmacy-4.webp"
+                  alt="Аптека TELLI: раздел «Пробиотики»"
+                  loading="lazy"
+                />
+              </figure>
+              <figure class="slide">
+                <img
+                  src="img/pharmacy-5.webp"
+                  alt="Аптека TELLI: препараты Quinton"
+                  loading="lazy"
+                />
+              </figure>
+            </div>
+          </div>
+        </div>
+      </section>
 
-<!-- ============ 03 КАФЕ ============ -->
-<section class="section section--sage" id="cafe">
-  <div class="container split split--rev">
-    <div class="split__text">
-      <div class="eyebrow">Направление 03</div>
-      <h2 class="h2">Органик-кафе TELLI</h2>
-      <span class="rule"></span>
-      <p>Тщательно продуманные рецепты и никаких компромиссов во вкусе — от лёгких перекусов до полезных обедов.</p>
-      <p><strong>Фирменный напиток:</strong> отвар из шиповника.<br><strong>Идеальный перекус:</strong> безглютеновые трубочки.</p>
-    </div>
-    <div class="slider slider--wide" data-autoplay="5000">
-      <div class="slider__track">
-        <figure class="slide"><img src="img/cafe.webp" alt="Органик-кафе TELLI" loading="lazy"></figure>
-        <div class="slide slide--ph"><span>Отвар из шиповника</span></div>
-        <div class="slide slide--ph"><span>Безглютеновые трубочки</span></div>
-      </div>
-    </div>
-  </div>
-</section>
+      <!-- ============ 02 КОСМЕТОЛОГИЯ (тёмно-зелёный акцент) ============ -->
+      <section class="section" id="cosmetology">
+        <div class="container split">
+          <div class="slider slider--portrait" data-autoplay="5000">
+            <div class="slider__track">
+              <figure class="slide">
+                <img
+                  src="img/cosmetology-2.webp"
+                  alt="Косметологический кабинет TELLI, аппаратная косметология"
+                  loading="lazy"
+                />
+              </figure>
+              <figure class="slide">
+                <img
+                  src="img/cosmetology-1.webp"
+                  alt="Косметологический кабинет TELLI"
+                  loading="lazy"
+                />
+              </figure>
+            </div>
+          </div>
+          <div class="split__text">
+            <div class="eyebrow">Направление 02</div>
+            <h2 class="h2">Косметологический кабинет</h2>
+            <span class="rule"></span>
+            <p>
+              Дипломированные врачи-дерматологи и косметологи проводят
+              современные anti-age процедуры.
+            </p>
+            <div class="procs">
+              <div class="proc">
+                <div class="proc__name">Ultraformer III</div>
+                <div class="proc__type">Аппаратная процедура</div>
+              </div>
+              <div class="proc">
+                <div class="proc__name">Scarlet RF</div>
+                <div class="proc__type">Аппаратная процедура</div>
+              </div>
+              <div class="proc">
+                <div class="proc__name">Ulthera</div>
+                <div class="proc__type">Аппаратная процедура</div>
+              </div>
+              <div class="proc">
+                <div class="proc__name">Массаж Жоэль Сиокко</div>
+                <div class="proc__type">Скульптурирующий массаж лица</div>
+              </div>
+            </div>
+            <p>
+              Уходовые программы на профессиональной косметике Sodashi, Bakel и
+              Skin Design London.
+            </p>
+            <a class="btn btn--green js-wa" href="#footer"
+              >Записаться через WhatsApp</a
+            >
+          </div>
+        </div>
+      </section>
 
-<!-- ============ 04 МОРОЖЕНОЕ ============ -->
-<section class="section" id="icecream">
-  <div class="container split">
-    <div class="slider slider--portrait">
-      <div class="slider__track">
-        <figure class="slide"><img src="img/icecream-1.webp" alt="Мороженое TELLI'S Organic" loading="lazy"></figure>
-      </div>
-    </div>
-    <div class="split__text">
-      <div class="eyebrow">Направление 04 · с 2024 года</div>
-      <h2 class="h2">Безлактозное мороженое TELLI'S</h2>
-      <span class="rule"></span>
-      <p>Собственное безлактозное органическое мороженое — для тех, кто ценит натуральный состав и не готов отказываться от любимого десерта.</p>
-      <p>Асель Тасмагамбетова лично участвует в каждом этапе: от рецептуры до финального отбора вкусов.</p>
-    </div>
-  </div>
-</section>
+      <!-- ============ 03 КАФЕ ============ -->
+      <section class="section section--sage" id="cafe">
+        <div class="container split split--rev">
+          <div class="split__text">
+            <div class="eyebrow">Направление 03</div>
+            <h2 class="h2">Органик-кафе TELLI</h2>
+            <span class="rule"></span>
+            <p>
+              Тщательно продуманные рецепты и никаких компромиссов во вкусе — от
+              лёгких перекусов до полезных обедов.
+            </p>
+            <p>
+              <strong>Фирменный напиток:</strong> отвар из шиповника.<br /><strong
+                >Идеальный перекус:</strong
+              >
+              безглютеновые трубочки.
+            </p>
+          </div>
+          <div class="slider slider--wide" data-autoplay="5000">
+            <div class="slider__track">
+              <figure class="slide">
+                <img
+                  src="img/cafe.webp"
+                  alt="Органик-кафе TELLI"
+                  loading="lazy"
+                />
+              </figure>
+              <div class="slide slide--ph"><span>Отвар из шиповника</span></div>
+              <div class="slide slide--ph">
+                <span>Безглютеновые трубочки</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-<!-- ============ ARNICA ============ -->
-<section class="section section--sage" id="arnica">
-  <div class="container split split--rev">
-    <div class="split__text">
-      <div class="eyebrow">Ресторан</div>
-      <h2 class="h2">ARNICA</h2>
-      <span class="rule"></span>
-      <p>[Текст о ресторане ARNICA — прислать позже]</p>
-      <div class="btns">
-        <a class="btn btn--green js-wa" href="#footer">Написать менеджеру в WhatsApp</a>
-        <a class="btn btn--outline" href="#" data-link="arnica" target="_blank" rel="noopener">Меню / бронирование</a>
-      </div>
-    </div>
-    <div class="slider slider--wide">
-      <div class="slider__track">
-        <figure class="slide"><img src="img/arnica-1.webp" alt="Кейтеринг ARNICA: канапе и мини-бургеры" loading="lazy"></figure>
-        <figure class="slide"><img src="img/arnica-2.webp" alt="Фуршетный стол ARNICA" loading="lazy"></figure>
-        <figure class="slide"><img src="img/arnica-3.webp" alt="Фуршет ARNICA на мероприятии" loading="lazy"></figure>
-      </div>
-    </div>
-  </div>
-</section>
+      <!-- ============ 04 МОРОЖЕНОЕ ============ -->
+      <section class="section" id="icecream">
+        <div class="container split">
+          <div class="slider slider--portrait">
+            <div class="slider__track">
+              <figure class="slide">
+                <img
+                  src="img/icecream-1.webp"
+                  alt="Мороженое TELLI'S Organic"
+                  loading="lazy"
+                />
+              </figure>
+            </div>
+          </div>
+          <div class="split__text">
+            <div class="eyebrow">Направление 04 · с 2024 года</div>
+            <h2 class="h2">Безлактозное мороженое TELLI'S</h2>
+            <span class="rule"></span>
+            <p>
+              Собственное безлактозное органическое мороженое — для тех, кто
+              ценит натуральный состав и не готов отказываться от любимого
+              десерта.
+            </p>
+            <p>
+              Асель Тасмагамбетова лично участвует в каждом этапе: от рецептуры
+              до финального отбора вкусов.
+            </p>
+          </div>
+        </div>
+      </section>
 
-</main>
+      <!-- ============ ARNICA ============ -->
+      <section class="section section--sage" id="arnica">
+        <div class="container split split--rev">
+          <div class="split__text">
+            <div class="eyebrow">Ресторан</div>
+            <h2 class="h2">ARNICA</h2>
+            <span class="rule"></span>
+            <p>[Текст о ресторане ARNICA — прислать позже]</p>
+            <div class="btns">
+              <a class="btn btn--green js-wa" href="#footer"
+                >Написать менеджеру в WhatsApp</a
+              >
+              <a
+                class="btn btn--outline"
+                href="#"
+                data-link="arnica"
+                target="_blank"
+                rel="noopener"
+                >Меню / бронирование</a
+              >
+            </div>
+          </div>
+          <div class="slider slider--wide">
+            <div class="slider__track">
+              <figure class="slide">
+                <img
+                  src="img/arnica-1.webp"
+                  alt="Кейтеринг ARNICA: канапе и мини-бургеры"
+                  loading="lazy"
+                />
+              </figure>
+              <figure class="slide">
+                <img
+                  src="img/arnica-2.webp"
+                  alt="Фуршетный стол ARNICA"
+                  loading="lazy"
+                />
+              </figure>
+              <figure class="slide">
+                <img
+                  src="img/arnica-3.webp"
+                  alt="Фуршет ARNICA на мероприятии"
+                  loading="lazy"
+                />
+              </figure>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
 
-<!-- ============ ПОДВАЛ ============ -->
-<footer class="footer" id="footer">
-  <div class="container footer__grid">
-    <div class="footer__brand">
-      <img src="img/logo-gold.png" alt="TELLI" class="footer__logo" width="225" height="240" loading="lazy">
-    </div>
-    <div class="footer__col">
-      <div class="footer__label">Контакты</div>
-      <a href="tel:+77273112924" class="footer__phone">+7 (727) 311-29-24</a>
-      <p class="footer__hours">Ежедневно с 10:00 до 21:00</p>
-    </div>
-    <div class="footer__col">
-      <div class="footer__label">Присоединяйтесь</div>
-      <div class="socials">
-        <a class="socials__item" href="#" data-link="instagram" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/></svg></a>
-        <a class="socials__item js-wa" href="#footer" aria-label="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M8.6 8.3c.2-.5.5-.5.8-.5h.5c.2 0 .4 0 .6.5l.7 1.6c.1.2 0 .4-.1.6l-.5.6c-.1.1-.2.3 0 .5.6 1 1.4 1.8 2.5 2.4.2.1.4.1.5 0l.6-.7c.2-.2.4-.2.6-.1l1.6.8c.2.1.4.2.4.4 0 .5-.2 1.2-.7 1.5-.6.4-1.4.6-2.4.3-1.6-.5-3.3-1.7-4.5-3.3-.9-1.2-1.3-2.3-1.2-3.2 0-.5.4-1 .6-1.4Z" fill="currentColor"/></svg></a>
-        <a class="socials__item" href="#" data-link="tiktok" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.2 3h2.7c.2 1.9 1.6 3.4 3.6 3.6v2.8c-1.4 0-2.7-.4-3.7-1.1v6.3a5.6 5.6 0 1 1-5.6-5.6h.5v2.9h-.5a2.7 2.7 0 1 0 2.7 2.7V3h.3Z" fill="currentColor"/></svg></a>
-        <a class="socials__item" href="#" data-link="facebook" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-7.6h2.6l.4-3h-3V8.5c0-.9.3-1.5 1.5-1.5h1.6V4.3c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H7.8v3h2.6V21h3.1Z" fill="currentColor"/></svg></a>
+    <!-- ============ ПОДВАЛ ============ -->
+    <footer class="footer" id="footer">
+      <div class="container footer__grid">
+        <div class="footer__brand">
+          <img
+            src="img/logo-gold.png"
+            alt="TELLI"
+            class="footer__logo"
+            width="225"
+            height="240"
+            loading="lazy"
+          />
+        </div>
+        <div class="footer__col">
+          <div class="footer__label">Контакты</div>
+          <a href="tel:+77273112924" class="footer__phone"
+            >+7 (727) 311-29-24</a
+          >
+          <p class="footer__hours">Ежедневно с 10:00 до 21:00</p>
+        </div>
+        <div class="footer__col">
+          <div class="footer__label">Присоединяйтесь</div>
+          <div class="socials">
+            <a
+              class="socials__item"
+              href="https://www.instagram.com/tellikz/"
+              data-link="instagram"
+              target="_blank"
+              rel="noopener"
+              aria-label="Instagram"
+              ><svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect
+                  x="3.5"
+                  y="3.5"
+                  width="17"
+                  height="17"
+                  rx="5"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                />
+                <circle
+                  cx="12"
+                  cy="12"
+                  r="4"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                />
+                <circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" /></svg
+            ></a>
+            <a class="socials__item js-wa" href="#footer" aria-label="WhatsApp"
+              ><svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3Z"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M8.6 8.3c.2-.5.5-.5.8-.5h.5c.2 0 .4 0 .6.5l.7 1.6c.1.2 0 .4-.1.6l-.5.6c-.1.1-.2.3 0 .5.6 1 1.4 1.8 2.5 2.4.2.1.4.1.5 0l.6-.7c.2-.2.4-.2.6-.1l1.6.8c.2.1.4.2.4.4 0 .5-.2 1.2-.7 1.5-.6.4-1.4.6-2.4.3-1.6-.5-3.3-1.7-4.5-3.3-.9-1.2-1.3-2.3-1.2-3.2 0-.5.4-1 .6-1.4Z"
+                  fill="currentColor"
+                /></svg
+            ></a>
+            <a
+              class="socials__item"
+              href="#"
+              data-link="tiktok"
+              target="_blank"
+              rel="noopener"
+              aria-label="TikTok"
+              ><svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M14.2 3h2.7c.2 1.9 1.6 3.4 3.6 3.6v2.8c-1.4 0-2.7-.4-3.7-1.1v6.3a5.6 5.6 0 1 1-5.6-5.6h.5v2.9h-.5a2.7 2.7 0 1 0 2.7 2.7V3h.3Z"
+                  fill="currentColor"
+                /></svg
+            ></a>
+            <a
+              class="socials__item"
+              href="https://www.facebook.com/Tellikz"
+              data-link="facebook"
+              target="_blank"
+              rel="noopener"
+              aria-label="Facebook"
+              ><svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M13.5 21v-7.6h2.6l.4-3h-3V8.5c0-.9.3-1.5 1.5-1.5h1.6V4.3c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H7.8v3h2.6V21h3.1Z"
+                  fill="currentColor"
+                /></svg
+            ></a>
+          </div>
+          <div class="footer__wa">
+            <span>WhatsApp Астана</span>
+            <a
+              href="https://wa.me/77757668708"
+              target="_blank"
+              rel="noopener"
+              class="footer__phone"
+              >+7 (775) 766-87-08</a
+            >
+          </div>
+          <div class="footer__wa">
+            <span>WhatsApp Алматы</span>
+            <a
+              href="https://wa.me/77015753312"
+              target="_blank"
+              rel="noopener"
+              class="footer__phone"
+              >+7 (701) 575-33-12</a
+            >
+          </div>
+        </div>
       </div>
-      <div class="footer__wa">
-        <span>WhatsApp Астана</span>
-        <a href="https://wa.me/77757668708" target="_blank" rel="noopener" class="footer__phone">+7 (775) 766-87-08</a>
+      <div class="container footer__copy">
+        © TELLI, 2008–<span id="year">2026</span>
       </div>
-      <div class="footer__wa">
-        <span>WhatsApp Алматы</span>
-        <a href="https://wa.me/77015753312" target="_blank" rel="noopener" class="footer__phone">+7 (701) 575-33-12</a>
-      </div>
-    </div>
-  </div>
-  <div class="container footer__copy">© TELLI, 2008–<span id="year">2026</span></div>
-</footer>
+    </footer>
 
-<script src="js/main.js"></script>
-</body>
+    <script src="js/main.js"></script>
+  </body>
 </html>
