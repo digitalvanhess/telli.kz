@@ -114,8 +114,8 @@ var CONFIG = {
       if (location.hash !== '#' + key) history.pushState(null, '', '#' + key);
       show(key);
     });
-    window.addEventListener('popstate', function () { show(location.hash.slice(1) || 'about'); });
-    show(location.hash.slice(1) || 'about', false);
+    window.addEventListener('popstate', function () { show(location.hash.slice(1) || 'home'); });
+    show(location.hash.slice(1) || 'home', false);
   }
 
   /* --- Бургер-меню --- */
