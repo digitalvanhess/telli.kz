@@ -48,38 +48,74 @@ var CONFIG = {
     if (a) e.preventDefault();
   });
 
-  /* --- Режим «вкладки»: пункт меню показывает свой раздел, остальные прячутся --- */
+  /* --- Режим «вкладки»: пункт меню показывает свой раздел на один экран, без прокрутки.
+         Если в разделе несколько страниц (О TELLI, Кафе) — внизу переключатель страниц. --- */
   if (document.documentElement.getAttribute('data-layout') === 'tabs') {
     var main = document.querySelector('main');
     var sections = [].slice.call(main.children).filter(function (el) { return el.tagName === 'SECTION'; });
-    // номера секций считаем один раз, пока все разделы на месте
-    sections.forEach(function (sec, i) {
+    var n = 0;
+    sections.forEach(function (sec) {
       var eb = sec.querySelector('.eyebrow');
-      if (eb) eb.setAttribute('data-n', String(sections.filter(function (x, j) { return j <= i && x.querySelector('.eyebrow'); }).length).padStart(2, '0'));
+      if (eb) eb.setAttribute('data-n', String(++n).padStart(2, '0'));
     });
     var tabOf = function (sec) { return sec.getAttribute('data-tab') || sec.id; };
-    var tabs = sections.map(tabOf);
+    var pageOf = function (sec) { return sec.getAttribute('data-page') || sec.id; };
     var navLinks = [].slice.call(document.querySelectorAll('.nav a[href^="#"]'));
-    var show = function (tab, scroll) {
-      if (tabs.indexOf(tab) === -1) tab = 'about';
-      sections.forEach(function (sec) { sec.hidden = tabOf(sec) !== tab; });
+
+    // переключатель страниц внутри вкладки
+    var pager = document.createElement('div');
+    pager.className = 'pager';
+    main.insertBefore(pager, main.firstChild);
+
+    var pagesOfTab = function (tab) {
+      var seen = [];
+      sections.forEach(function (sec) {
+        if (tabOf(sec) === tab && seen.indexOf(pageOf(sec)) === -1) seen.push(pageOf(sec));
+      });
+      return seen;
+    };
+    var labelOf = function (page) {
+      var sec = sections.filter(function (x) { return pageOf(x) === page && x.getAttribute('data-label'); })[0];
+      return sec ? sec.getAttribute('data-label') : page;
+    };
+
+    var show = function (key, scroll) {
+      // key может быть вкладкой (#about) или страницей (#home, #icecream)
+      var sec = sections.filter(function (x) { return pageOf(x) === key || x.id === key; })[0] ||
+                sections.filter(function (x) { return tabOf(x) === key; })[0] || sections[0];
+      var tab = tabOf(sec);
+      var pages = pagesOfTab(tab);
+      var page = (pageOf(sec) === key || sec.id === key) ? pageOf(sec) : pages[0];
+      sections.forEach(function (x) { x.hidden = pageOf(x) !== page; });
       navLinks.forEach(function (a) { a.classList.toggle('is-active', a.getAttribute('href') === '#' + tab); });
+      pager.innerHTML = '';
+      pager.hidden = pages.length < 2;
+      main.classList.toggle('has-pager', pages.length > 1);
+      pages.forEach(function (pg) {
+        var b = document.createElement('a');
+        b.href = '#' + pg;
+        b.className = 'pager__item' + (pg === page ? ' is-active' : '');
+        b.textContent = labelOf(pg);
+        pager.appendChild(b);
+      });
       if (scroll !== false) window.scrollTo(0, 0);
     };
+
     document.addEventListener('click', function (e) {
       var a = e.target.closest('a[href^="#"]');
       if (!a) return;
       var id = a.getAttribute('href').slice(1);
       var target = id && document.getElementById(id);
       var sec = target && target.closest('main > section');
-      if (!sec) return; // #footer и прочее — обычная прокрутка
+      if (!sec) return; // #footer и прочее — обычное поведение
       e.preventDefault();
-      var tab = tabOf(sec);
-      if (location.hash !== '#' + tab) history.pushState(null, '', '#' + tab);
-      show(tab);
+      // ссылка из меню на вкладку открывает её первую страницу
+      var key = a.closest('.nav') ? tabOf(sec) : pageOf(sec);
+      if (location.hash !== '#' + key) history.pushState(null, '', '#' + key);
+      show(key);
     });
-    window.addEventListener('popstate', function () { show(location.hash.slice(1)); });
-    show(location.hash.slice(1), false);
+    window.addEventListener('popstate', function () { show(location.hash.slice(1) || 'about'); });
+    show(location.hash.slice(1) || 'about', false);
   }
 
   /* --- Бургер-меню --- */

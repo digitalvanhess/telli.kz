@@ -278,6 +278,28 @@ main{counter-reset:sec}
 .product:hover .product__img img{transform:scale(1.05)}
 .js-reveal .reveal{opacity:0;transform:translateY(28px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
 .js-reveal .reveal.is-visible{opacity:1;transform:none}
+@media (min-width:1024px) and (max-height:820px){
+  html[data-layout="tabs"] .product__img{aspect-ratio:2/1}
+  html[data-layout="tabs"] .stats{padding:14px 0}
+  html[data-layout="tabs"] .stat__num{font-size:28px}
+  html[data-layout="tabs"] .hero__text p{font-size:14px;margin-bottom:.6em}
+  html[data-layout="tabs"] .about__text .lead{font-size:14.5px}
+  html[data-layout="tabs"] .h2{font-size:clamp(22px,2.3vw,30px)}
+}
+@media (min-width:1024px) and (max-height:780px){
+  html[data-layout="tabs"] .section{padding:14px 0}
+  html[data-layout="tabs"] .rule{margin:8px 0 12px}
+  html[data-layout="tabs"] .section .eyebrow::before{font-size:22px}
+  html[data-layout="tabs"] .product__img{aspect-ratio:3/1}
+  html[data-layout="tabs"] .products{margin-top:12px;gap:10px}
+  html[data-layout="tabs"] .city p{font-size:12px}
+  html[data-layout="tabs"] .cities{margin:10px 0}
+  html[data-layout="tabs"] .about__text p{font-size:13px;line-height:1.6}
+  html[data-layout="tabs"] .about .lead{font-size:14px}
+  html[data-layout="tabs"] .about .slider{height:calc(var(--avail) - 200px)}
+  html[data-layout="tabs"] .city p{display:none}
+  html[data-layout="tabs"] .city{align-items:center}
+}
 @media (prefers-reduced-motion:reduce){
   .js-reveal .reveal{opacity:1;transform:none;transition:none}
   .slide img,.product__img img{transition:none}
@@ -287,16 +309,103 @@ main{counter-reset:sec}
 
 /* =========================================================
    Режим «вкладки» (<html data-layout="tabs">): меню переключает
-   разделы на месте, без длинной прокрутки
+   разделы на месте; на компьютере каждый раздел — ровно один экран
    ========================================================= */
-[data-layout="tabs"] main{min-height:calc(100vh - var(--header-h) - 1px)}
-[data-layout="tabs"] main > section[hidden]{display:none}
+[data-layout="tabs"] main > section[hidden],[data-layout="tabs"] .pager[hidden]{display:none}
 [data-layout="tabs"] main > section{animation:tabIn .55s cubic-bezier(.2,.7,.2,1) both}
 @keyframes tabIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 [data-layout="tabs"] .section .eyebrow::before{content:attr(data-n)}
 [data-layout="tabs"] .nav a.is-active{color:var(--green);border-bottom-color:var(--gold)}
 [data-layout="tabs"] .section::before,[data-layout="tabs"] .section::after{display:none}
-@media (prefers-reduced-motion:reduce){[data-layout="tabs"] main > section{animation:none}}
+[data-layout="tabs"] .js-reveal .reveal{opacity:1;transform:none}
+
+/* переключатель страниц внутри вкладки (О TELLI, Кафе) */
+.pager{display:flex;justify-content:center;gap:10px;padding:14px 16px 18px}
+.pager__item{font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;color:var(--green);
+  padding:9px 18px;border:1px solid var(--line);background:#fff;transition:background .2s,color .2s,border-color .2s}
+.pager__item:hover{border-color:var(--gold)}
+.pager__item.is-active{background:var(--green);border-color:var(--green);color:#fff}
+
+/* компактный подвал в одну строку */
+[data-layout="tabs"] .footer{padding:14px 0}
+[data-layout="tabs"] .footer__grid{display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap}
+[data-layout="tabs"] .footer__brand,[data-layout="tabs"] .footer__label,[data-layout="tabs"] .footer__copy{display:none}
+[data-layout="tabs"] .footer__col{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+[data-layout="tabs"] .footer__phone{font-size:14px}
+[data-layout="tabs"] .footer__hours{margin:0;font-size:13px}
+[data-layout="tabs"] .footer__wa{margin:0;display:flex;align-items:baseline;gap:8px}
+[data-layout="tabs"] .footer__wa span{margin:0;font-size:12px}
+[data-layout="tabs"] .socials{margin:0;gap:8px}
+[data-layout="tabs"] .socials__item{width:32px;height:32px}
+[data-layout="tabs"] .socials__item svg{width:17px;height:17px}
+
+/* один раздел = один экран (компьютер и ноутбук) */
+@media (min-width:1024px) and (min-height:600px){
+  [data-layout="tabs"]{--fh:62px;--ph:64px;--avail:calc(100svh - var(--header-h) - var(--fh))}
+  [data-layout="tabs"] body{min-height:100svh;display:flex;flex-direction:column}
+  [data-layout="tabs"] main{flex:1;display:flex;flex-direction:column;justify-content:center}
+  [data-layout="tabs"] main > section:not([hidden]){flex:1 0 auto}
+  [data-layout="tabs"] .section{padding:clamp(20px,4svh,48px) 0;display:flex;align-items:center}
+  [data-layout="tabs"] .section > .container{width:100%}
+  [data-layout="tabs"] .h2{font-size:clamp(24px,2.6vw,36px)}
+  [data-layout="tabs"] .rule{margin:14px 0 18px}
+  [data-layout="tabs"] .eyebrow{margin-bottom:10px}
+  [data-layout="tabs"] .split__text p,[data-layout="tabs"] .about__text p{margin-bottom:.7em}
+  /* арка подстраивается под высоту экрана */
+  [data-layout="tabs"] .split > .slider,[data-layout="tabs"] .about .slider{
+    height:min(600px,calc(var(--avail) - 2 * clamp(20px,4svh,48px)));width:auto;max-width:none}
+  [data-layout="tabs"] .split__text,[data-layout="tabs"] .about__text{padding-top:0;align-self:center}
+  [data-layout="tabs"] .split,[data-layout="tabs"] .about{align-items:center}
+  /* первый экран + цифры вместе */
+  [data-layout="tabs"] .hero{padding:clamp(16px,3svh,36px) 0;flex:1 0 auto;display:flex;align-items:center}
+  [data-layout="tabs"] .hero > .container{width:100%}
+  [data-layout="tabs"] .hero .slider{height:min(560px,calc(var(--avail) - 110px - 2 * clamp(16px,3svh,36px)));width:auto;max-width:none}
+  [data-layout="tabs"] .hero__text{padding-top:0;align-self:center}
+  [data-layout="tabs"] .hero__grid{align-items:center}
+  [data-layout="tabs"] .h1{font-size:clamp(28px,3.2vw,46px)}
+  [data-layout="tabs"] .stats{padding:22px 0}
+  [data-layout="tabs"] .stat__num{font-size:34px}
+  /* О компании: плотнее */
+  [data-layout="tabs"] .cities{margin:16px 0;gap:12px}
+  [data-layout="tabs"] .city{padding:12px 16px;grid-template-columns:52px 1fr}
+  [data-layout="tabs"] .city__icon{width:52px;height:52px}
+  [data-layout="tabs"] .about .lead{font-size:16px}
+  /* каталог: карточки ниже */
+  [data-layout="tabs"] .products{margin-top:18px;gap:14px}
+  [data-layout="tabs"] .product__img{aspect-ratio:4/3}
+  [data-layout="tabs"] .product__body{padding:10px 14px}
+  [data-layout="tabs"] .buy.market{margin-top:18px}
+  [data-layout="tabs"] .sub{margin-bottom:0}
+  /* Made in KZ */
+  [data-layout="tabs"] .slider--card{aspect-ratio:auto;height:calc(var(--avail) - 380px);min-height:180px}
+  [data-layout="tabs"] .kz__body{padding:18px 24px}
+  /* косметология */
+  [data-layout="tabs"] .procs{margin:4px 0 14px;gap:8px}
+  [data-layout="tabs"] .proc{padding:9px 14px}
+  /* бутики */
+  [data-layout="tabs"] .kzmap svg{max-height:calc(var(--avail) - 260px)}
+  [data-layout="tabs"] .store{padding:16px 22px;margin-bottom:12px}
+  /* плотнее для О компании и каталога */
+  [data-layout="tabs"] .cities{grid-template-columns:1fr 1fr}
+  [data-layout="tabs"] .city{grid-template-columns:44px 1fr;gap:12px;align-items:start}
+  [data-layout="tabs"] .city__icon{width:44px;height:44px}
+  [data-layout="tabs"] .city p{font-size:12.5px;line-height:1.5}
+  [data-layout="tabs"] .about__text p{font-size:14px}
+  [data-layout="tabs"] .brandline{font-size:16px !important;line-height:1.4}
+  [data-layout="tabs"] .product__img{aspect-ratio:16/10}
+  [data-layout="tabs"] .product__brand{font-size:15px}
+  [data-layout="tabs"] .product__name{font-size:12px}
+  [data-layout="tabs"] .about .slider{height:calc(var(--avail) - 250px);max-height:560px}
+  [data-layout="tabs"] .about{align-items:start}
+  [data-layout="tabs"] #brands .container{display:grid;grid-template-columns:1fr auto;column-gap:40px;align-items:end}
+  [data-layout="tabs"] #brands .container > *{grid-column:1}
+  [data-layout="tabs"] #brands .products{grid-column:1 / -1}
+  [data-layout="tabs"] #brands .buy{grid-column:2;grid-row:1 / span 4;margin:0;align-self:end}
+  /* переключатель страниц — тонкая полоска под меню */
+  [data-layout="tabs"] main.has-pager{--avail:calc(100svh - var(--header-h) - var(--fh) - 46px)}
+  [data-layout="tabs"] .pager{order:-1;flex:none;padding:8px 16px 0;height:46px}
+  [data-layout="tabs"] .pager__item{padding:7px 16px}
+}
 
 /* =========================================================
    Арочные фото: одинаковая форма, размер и уровень во всех разделах

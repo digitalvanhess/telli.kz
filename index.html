@@ -24,7 +24,7 @@
       href="https://fonts.googleapis.com/css2?family=Forum&family=Montserrat:wght@400;500;600&family=Cormorant+Garamond:ital,wght@1,400&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/style.css?v=20261118tabs" />
+    <link rel="stylesheet" href="css/style.css?v=20261118tabs2" />
   </head>
   <body>
     <!-- ============ ШАПКА ============ -->
@@ -62,7 +62,7 @@
 
     <main>
       <!-- ============ ПЕРВЫЙ ЭКРАН ============ -->
-      <section class="hero" data-tab="about">
+      <section class="hero" id="home" data-tab="about" data-page="home" data-label="Главная">
         <div class="container hero__grid">
           <div class="hero__text">
             <h1 class="h1">
@@ -109,7 +109,7 @@
       </section>
 
       <!-- ============ ЦИФРЫ ============ -->
-      <section class="stats" data-tab="about">
+      <section class="stats" data-tab="about" data-page="home">
         <div class="container stats__grid">
           <div class="stat">
             <div class="stat__num">с 2008</div>
@@ -164,7 +164,7 @@
       </section>
 
       <!-- ============ О КОМПАНИИ (новый блок, слайд 4 презентации) ============ -->
-      <section class="section section--line" id="about" data-tab="about">
+      <section class="section section--line" id="about" data-tab="about" data-label="О компании">
         <div class="container">
           <div class="eyebrow">О компании</div>
           <h2 class="h2">Розница и портфель брендов</h2>
@@ -592,7 +592,7 @@
       </section>
 
       <!-- ============ 03 КАФЕ ============ -->
-      <section class="section section--sage" id="cafe">
+      <section class="section section--sage" id="cafe" data-label="Органик-кафе">
         <div class="container split split--rev">
           <div class="split__text">
             <div class="eyebrow">Направление</div>
@@ -628,7 +628,7 @@
       </section>
 
       <!-- ============ 04 МОРОЖЕНОЕ ============ -->
-      <section class="section" id="icecream" data-tab="cafe">
+      <section class="section" id="icecream" data-tab="cafe" data-label="Мороженое TELLI'S">
         <div class="container split">
           <div class="slider slider--portrait">
             <div class="slider__track">
@@ -861,6 +861,6 @@
       </div>
     </footer>
 
-    <script src="js/main.js?v=20261118tabs"></script>
+    <script src="js/main.js?v=20261118tabs2"></script>
   </body>
 </html>
