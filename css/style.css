@@ -212,3 +212,75 @@ em{font-style:italic}
 @media (prefers-reduced-motion:reduce){
   html,.slider__track{scroll-behavior:auto}
 }
+
+/* =========================================================
+   Премиальные детали: золото, номера секций, карта, анимации,
+   плавающая кнопка WhatsApp
+   ========================================================= */
+
+/* --- ромбик из логотипа в разделителе под заголовком --- */
+.rule{position:relative;width:78px;border:0;height:9px;background:
+  linear-gradient(var(--gold),var(--gold)) 0 2px/64px 1px no-repeat,
+  linear-gradient(var(--gold),var(--gold)) 0 6px/64px 1px no-repeat}
+.rule::after{content:"";position:absolute;right:0;top:1px;width:7px;height:7px;background:var(--gold);transform:rotate(45deg)}
+
+/* --- тонкий золотой разделитель с ромбиком между секциями --- */
+main{counter-reset:sec}
+.section{position:relative}
+.section::before{content:"";position:absolute;left:50%;top:0;width:min(360px,60%);height:1px;transform:translateX(-50%);
+  background:linear-gradient(90deg,transparent,var(--gold) 30%,var(--gold) 70%,transparent);opacity:.7}
+.section::after{content:"";position:absolute;left:50%;top:-5px;width:9px;height:9px;margin-left:-5px;transform:rotate(45deg);
+  background:var(--ivory);border:1px solid var(--gold)}
+.section--sage::after{background:var(--sage)}
+
+/* --- номера секций: крупная тонкая золотая цифра --- */
+.section .eyebrow{counter-increment:sec;display:flex;align-items:center;gap:14px}
+.section .eyebrow::before{content:counter(sec,decimal-leading-zero);font-family:var(--serif);font-size:30px;letter-spacing:.04em;color:var(--gold);line-height:1;font-weight:400}
+
+/* --- карта бутиков --- */
+.stores{display:grid;grid-template-columns:1.35fr 1fr;gap:56px;align-items:center;margin-top:8px}
+.kzmap{position:relative}
+.kzmap svg{display:block;width:100%;height:auto;overflow:visible}
+.kzmap__land{fill:var(--sage-2);stroke:var(--gold);stroke-width:1.4;stroke-linejoin:round}
+.kzmap__route{fill:none;stroke:var(--gold);stroke-width:1.6;stroke-dasharray:3 7;stroke-linecap:round}
+.kzmap__pin circle.dot{fill:var(--green);stroke:#fff;stroke-width:3}
+.kzmap__pin circle.halo{fill:var(--gold);opacity:.25;transform-box:fill-box;transform-origin:center;animation:pin 2.6s ease-out infinite}
+.kzmap__pin text{font-family:var(--serif);font-size:30px;letter-spacing:.06em;fill:var(--green);text-transform:uppercase}
+.kzmap__pin text.sub{font-family:var(--sans);font-size:18px;letter-spacing:.08em;fill:var(--gold)}
+@keyframes pin{0%{transform:scale(.6);opacity:.45}100%{transform:scale(2.4);opacity:0}}
+.store{padding:26px 28px;background:#fff;border:1px solid var(--line);border-left:2px solid var(--gold);margin-bottom:18px}
+.store:last-child{margin-bottom:0}
+.store__city{font-family:var(--serif);font-size:22px;letter-spacing:.06em;text-transform:uppercase;color:var(--green);margin-bottom:4px}
+.store__city span{color:var(--gold);font-size:16px;margin-left:8px}
+.store p{margin:0 0 6px;color:var(--muted);font-size:14px}
+.store__phone{font-weight:600;color:var(--green);text-decoration:none}
+.store__link{display:inline-block;margin-top:8px;font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:2px}
+.store__link:hover{color:var(--green)}
+
+/* --- плавающая кнопка WhatsApp (только телефон) --- */
+.wa-float{display:none}
+@media (max-width:860px){
+  .wa-float{display:flex;position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:60;width:58px;height:58px;border-radius:50%;
+    align-items:center;justify-content:center;background:#25D366;color:#fff;box-shadow:0 8px 24px rgba(31,39,27,.28);
+    opacity:0;transform:translateY(12px) scale(.9);pointer-events:none;transition:opacity .3s,transform .3s}
+  .wa-float.is-shown{opacity:1;transform:none;pointer-events:auto}
+  .wa-float svg{width:30px;height:30px}
+  .stores{grid-template-columns:1fr;gap:32px}
+  .section .eyebrow::before{font-size:24px}
+  .kzmap__pin text{font-size:46px}
+  .kzmap__pin text.sub{font-size:28px}
+}
+
+/* --- анимации: мягкое всплытие блоков и зум фото --- */
+.slide img{transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.slider:hover .slide img{transform:scale(1.045)}
+.product__img img{transition:transform 1s cubic-bezier(.2,.7,.2,1)}
+.product:hover .product__img img{transform:scale(1.05)}
+.js-reveal .reveal{opacity:0;transform:translateY(28px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
+.js-reveal .reveal.is-visible{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  .js-reveal .reveal{opacity:1;transform:none;transition:none}
+  .slide img,.product__img img{transition:none}
+  .slider:hover .slide img,.product:hover .product__img img{transform:none}
+  .kzmap__pin circle.halo{animation:none}
+}

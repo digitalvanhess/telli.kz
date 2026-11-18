@@ -146,6 +146,33 @@ var CONFIG = {
     }
   });
 
+  /* --- Плавающая кнопка WhatsApp: появляется после первого экрана --- */
+  var waFloat = document.querySelector('.wa-float');
+  if (waFloat) {
+    var onScroll = function () { waFloat.classList.toggle('is-shown', window.scrollY > window.innerHeight * 0.6); };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+
+  /* --- Мягкое всплытие блоков при прокрутке --- */
+  if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    var targets = document.querySelectorAll(
+      '.section .eyebrow, .section .h2, .section .rule, .split__text > p, .slider, .product, .kz__card, .proc, .city, .store, .kzmap, .stat, .bignum, .market, .btns'
+    );
+    document.documentElement.classList.add('js-reveal');
+    targets.forEach(function (el) {
+      el.classList.add('reveal');
+      var sib = el.parentElement ? [].indexOf.call(el.parentElement.children, el) : 0;
+      if (el.matches('.product, .proc, .stat, .city, .store')) el.style.setProperty('--d', (sib % 5) * 0.08 + 's');
+    });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
+    targets.forEach(function (el) { io.observe(el); });
+  }
+
   /* --- Год в подвале --- */
   var y = document.getElementById('year');
   if (y) y.textContent = new Date().getFullYear();
