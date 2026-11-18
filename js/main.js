@@ -48,6 +48,40 @@ var CONFIG = {
     if (a) e.preventDefault();
   });
 
+  /* --- Режим «вкладки»: пункт меню показывает свой раздел, остальные прячутся --- */
+  if (document.documentElement.getAttribute('data-layout') === 'tabs') {
+    var main = document.querySelector('main');
+    var sections = [].slice.call(main.children).filter(function (el) { return el.tagName === 'SECTION'; });
+    // номера секций считаем один раз, пока все разделы на месте
+    sections.forEach(function (sec, i) {
+      var eb = sec.querySelector('.eyebrow');
+      if (eb) eb.setAttribute('data-n', String(sections.filter(function (x, j) { return j <= i && x.querySelector('.eyebrow'); }).length).padStart(2, '0'));
+    });
+    var tabOf = function (sec) { return sec.getAttribute('data-tab') || sec.id; };
+    var tabs = sections.map(tabOf);
+    var navLinks = [].slice.call(document.querySelectorAll('.nav a[href^="#"]'));
+    var show = function (tab, scroll) {
+      if (tabs.indexOf(tab) === -1) tab = 'about';
+      sections.forEach(function (sec) { sec.hidden = tabOf(sec) !== tab; });
+      navLinks.forEach(function (a) { a.classList.toggle('is-active', a.getAttribute('href') === '#' + tab); });
+      if (scroll !== false) window.scrollTo(0, 0);
+    };
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest('a[href^="#"]');
+      if (!a) return;
+      var id = a.getAttribute('href').slice(1);
+      var target = id && document.getElementById(id);
+      var sec = target && target.closest('main > section');
+      if (!sec) return; // #footer и прочее — обычная прокрутка
+      e.preventDefault();
+      var tab = tabOf(sec);
+      if (location.hash !== '#' + tab) history.pushState(null, '', '#' + tab);
+      show(tab);
+    });
+    window.addEventListener('popstate', function () { show(location.hash.slice(1)); });
+    show(location.hash.slice(1), false);
+  }
+
   /* --- Бургер-меню --- */
   var burger = document.getElementById('burger');
   var nav = document.getElementById('nav');

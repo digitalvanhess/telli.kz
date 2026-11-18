@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ru">
+<html lang="ru" data-layout="tabs">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -24,13 +24,13 @@
       href="https://fonts.googleapis.com/css2?family=Forum&family=Montserrat:wght@400;500;600&family=Cormorant+Garamond:ital,wght@1,400&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/style.css?v=20261118b" />
+    <link rel="stylesheet" href="css/style.css?v=20261118tabs" />
   </head>
   <body>
     <!-- ============ ШАПКА ============ -->
     <header class="header" id="top">
       <div class="container header__inner">
-        <a href="#top" class="header__logo" aria-label="TELLI — на главную"
+        <a href="#about" class="header__logo" aria-label="TELLI — на главную"
           ><img src="img/logo-green.png" alt="TELLI" width="225" height="240"
         /></a>
         <nav class="nav" id="nav" aria-label="Разделы">
@@ -42,6 +42,7 @@
           <a href="#cosmetology">Косметология</a>
           <a href="#cafe">Кафе</a>
           <a href="#arnica">ARNICA</a>
+          <a href="#stores">Бутики</a>
           <a href="#footer" class="nav__wa js-wa">Написать в WhatsApp</a>
         </nav>
         <a href="#footer" class="btn btn--gold header__cta js-wa"
@@ -61,7 +62,7 @@
 
     <main>
       <!-- ============ ПЕРВЫЙ ЭКРАН ============ -->
-      <section class="hero">
+      <section class="hero" data-tab="about">
         <div class="container hero__grid">
           <div class="hero__text">
             <h1 class="h1">
@@ -108,7 +109,7 @@
       </section>
 
       <!-- ============ ЦИФРЫ ============ -->
-      <section class="stats">
+      <section class="stats" data-tab="about">
         <div class="container stats__grid">
           <div class="stat">
             <div class="stat__num">с 2008</div>
@@ -163,7 +164,7 @@
       </section>
 
       <!-- ============ О КОМПАНИИ (новый блок, слайд 4 презентации) ============ -->
-      <section class="section section--line" id="about">
+      <section class="section section--line" id="about" data-tab="about">
         <div class="container">
           <div class="eyebrow">О компании</div>
           <h2 class="h2">Розница и портфель брендов</h2>
@@ -627,7 +628,7 @@
       </section>
 
       <!-- ============ 04 МОРОЖЕНОЕ ============ -->
-      <section class="section" id="icecream">
+      <section class="section" id="icecream" data-tab="cafe">
         <div class="container split">
           <div class="slider slider--portrait">
             <div class="slider__track">
@@ -860,6 +861,6 @@
       </div>
     </footer>
 
-    <script src="js/main.js?v=20261118b"></script>
+    <script src="js/main.js?v=20261118tabs"></script>
   </body>
 </html>
