@@ -419,3 +419,96 @@ main{counter-reset:sec}
   .hero .slider,.split > .slider,.about .slider,.hero__grid .slider{aspect-ratio:4/5;max-width:min(380px,100%)}
   .split__text,.hero__text,.about__text{padding-top:0}
 }
+
+/* =========================================================
+   Правки 20.11: одинаковые арки везде, низкая полоса цифр,
+   полные тексты, портфель брендов, Made in KZ
+   ========================================================= */
+.hero__cols{columns:2;column-gap:32px;font-size:14px;line-height:1.65;orphans:2;widows:2}
+.hero__cols p{max-width:none;font-size:inherit;line-height:inherit;margin-bottom:.7em}
+.hero__text strong,.split__text strong,.portfolio strong{font-weight:600;color:var(--green)}
+strong.gold,em.gold{color:var(--gold)}
+.portfolio{margin-top:18px}
+.portfolio__label{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:8px}
+.portfolio__note{font-size:12.5px;color:var(--muted);margin-bottom:10px}
+.tags{list-style:none;margin:0 0 18px;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.tags li{font-family:var(--italic);font-size:17px;line-height:1;color:var(--green);padding:8px 12px;border:1px solid rgba(184,149,90,.55);background:#fff}
+.tags .tags__more{font-family:var(--sans);font-size:12px;color:var(--muted);border-style:dashed;background:transparent;display:flex;align-items:center}
+.expertise{border-left:2px solid var(--gold);background:var(--sage);padding:14px 18px}
+.expertise p{margin:0;font-size:14px}
+/* Made in KZ: продукты в арке с подписью */
+.slider--kz{border-radius:999px 999px var(--radius) var(--radius)}
+.slide--asiya{background:#ECD6AA}.slide--telli{background:#283E22}
+.slide__cap{position:absolute;left:0;right:0;bottom:34px;text-align:center;font-family:var(--serif);font-size:20px;letter-spacing:.3em;text-transform:uppercase;color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.35)}
+.slide--asiya .slide__cap{color:var(--green);text-shadow:none}
+.kzbrand{padding:14px 0 14px 18px;border-left:2px solid var(--line);transition:border-color .25s}
+.kzbrand + .kzbrand{margin-top:10px}
+.kzbrand.is-active,.kzbrand:hover{border-left-color:var(--gold)}
+.kzbrand .h3{font-size:22px;margin-bottom:6px}
+.kzbrand p{margin:0 0 6px}
+.kzbrand .market{margin-top:6px}
+.kzbrand .mk{width:42px;height:42px;border-radius:11px}
+@media (max-width:860px){
+  .hero__cols{columns:1}
+  .slider--kz{aspect-ratio:4/5;width:100%;max-width:min(380px,100%);justify-self:center}
+}
+
+/* одна высота арки на всех страницах (компьютер, режим вкладок) */
+@media (min-width:1024px) and (min-height:600px){
+  html[data-layout="tabs"]{--pad:clamp(14px,3svh,36px);--strip:60px;
+    --arch-h:min(560px,calc(100svh - var(--header-h) - var(--fh) - var(--strip) - 2 * var(--pad)))}
+  html[data-layout="tabs"] .section,html[data-layout="tabs"] .hero{padding:var(--pad) 0}
+  html[data-layout="tabs"] .hero .slider,
+  html[data-layout="tabs"] .split > .slider,
+  html[data-layout="tabs"] .about .slider{height:var(--arch-h);width:calc(var(--arch-h) * .8);max-width:none;max-height:none;aspect-ratio:auto;justify-self:center;align-self:center}
+  html[data-layout="tabs"] .hero__grid{grid-template-columns:1fr auto;gap:56px;align-items:center}
+  html[data-layout="tabs"] .split{grid-template-columns:auto 1fr;gap:64px;align-items:center}
+  html[data-layout="tabs"] .split--rev{grid-template-columns:1fr auto}
+  html[data-layout="tabs"] .about{grid-template-columns:1fr auto;gap:56px;align-items:center}
+  html[data-layout="tabs"] .hero__text,html[data-layout="tabs"] .split__text,html[data-layout="tabs"] .about__text{padding-top:0}
+  html[data-layout="tabs"] .h1{font-size:clamp(26px,2.6vw,40px)}
+  html[data-layout="tabs"] .hero .rule{margin:12px 0 16px}
+  /* цифры — низкая полоса, как подвал */
+  html[data-layout="tabs"] .stats{padding:0;height:var(--strip);display:flex;align-items:center}
+  html[data-layout="tabs"] .stats__grid{width:100%}
+  html[data-layout="tabs"] .stat{display:flex;align-items:baseline;justify-content:center;gap:10px}
+  html[data-layout="tabs"] .stat__num{font-size:24px}
+  html[data-layout="tabs"] .stat__label{margin:0;font-size:12px}
+  html[data-layout="tabs"] .hero{flex:1 0 auto}
+  /* О компании: фото как у всех, текст плотнее */
+  html[data-layout="tabs"] .about .lead{font-size:14.5px;margin-bottom:12px}
+  html[data-layout="tabs"] .cities{margin:0;gap:10px}
+  html[data-layout="tabs"] .city p{display:none}
+  html[data-layout="tabs"] .city{align-items:center;padding:10px 14px}
+  html[data-layout="tabs"] .portfolio p{font-size:13.5px;margin-bottom:8px}
+}
+@media (min-width:1024px) and (max-height:820px){
+  html[data-layout="tabs"] .hero__cols{font-size:12.5px;line-height:1.55}
+  html[data-layout="tabs"] .hero__cols p{margin-bottom:.55em;font-size:inherit}
+  html[data-layout="tabs"] .split__text p{font-size:13.5px;line-height:1.6}
+  html[data-layout="tabs"] .tags li{font-size:15px;padding:6px 10px}
+  html[data-layout="tabs"] .portfolio{margin-top:12px}
+  html[data-layout="tabs"] .expertise{padding:10px 14px}
+  html[data-layout="tabs"] .expertise p{font-size:13px}
+}
+@media (min-width:1024px) and (max-height:740px){
+  html[data-layout="tabs"] .hero__cols{font-size:12px;line-height:1.5}
+  html[data-layout="tabs"] .split__text p{font-size:13px;line-height:1.55;margin-bottom:.55em}
+  html[data-layout="tabs"] .about .lead{font-size:13.5px}
+  html[data-layout="tabs"] .portfolio p{font-size:12.5px}
+  html[data-layout="tabs"] .tags{gap:6px;margin-bottom:10px}
+  html[data-layout="tabs"] .tags li{font-size:14px;padding:5px 9px}
+}
+@media (min-width:1024px) and (min-height:600px) and (max-height:960px){
+  html[data-layout="tabs"] .hero__cols{font-size:13px;line-height:1.58}
+  html[data-layout="tabs"] .h1{font-size:min(2.6vw,4.2svh)}
+}
+@media (min-width:1024px) and (min-height:600px) and (max-height:820px){
+  html[data-layout="tabs"] .hero__cols{font-size:12px;line-height:1.52}
+  html[data-layout="tabs"] .about .lead{margin-bottom:8px}
+  html[data-layout="tabs"] .about .rule{margin:10px 0 12px}
+}
+@media (min-width:1024px) and (min-height:600px) and (max-height:820px){
+  html[data-layout="tabs"] .city{padding:8px 14px}
+  html[data-layout="tabs"] .portfolio__note{margin-bottom:6px}
+}

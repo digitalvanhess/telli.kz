@@ -216,6 +216,20 @@ var CONFIG = {
     }
   });
 
+  /* --- Made in KZ: описание бренда переключает фото в арке --- */
+  document.querySelectorAll('.kzbrand').forEach(function (b) {
+    var track = document.querySelector('.slider--kz .slider__track');
+    if (!track) return;
+    var go = function () { track.scrollTo({ left: +b.dataset.slide * track.clientWidth, behavior: 'smooth' }); };
+    b.addEventListener('mouseenter', go);
+    b.addEventListener('click', function (e) { if (!e.target.closest('a')) go(); });
+    track.addEventListener('scroll', function () {
+      b.classList.toggle('is-active', Math.round(track.scrollLeft / track.clientWidth) === +b.dataset.slide);
+    }, { passive: true });
+  });
+  var kzt = document.querySelector('.slider--kz .slider__track');
+  if (kzt) kzt.dispatchEvent(new Event('scroll'));
+
   /* --- Плавающая кнопка WhatsApp: появляется после первого экрана --- */
   var waFloat = document.querySelector('.wa-float');
   if (waFloat) {
