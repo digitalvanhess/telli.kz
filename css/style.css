@@ -512,3 +512,27 @@ strong.gold,em.gold{color:var(--gold)}
   html[data-layout="tabs"] .city{padding:8px 14px}
   html[data-layout="tabs"] .portfolio__note{margin-bottom:6px}
 }
+
+/* =========================================================
+   Правки 25.11: «О компании» без фото, ровная полоса цифр,
+   фото товаров в каталоге
+   ========================================================= */
+.about--text{grid-template-columns:1fr}
+.about--text .about__text{display:grid;grid-template-columns:1fr 1.15fr;column-gap:64px;align-items:start}
+.about--text .portfolio{margin-top:0}
+.about--text .cities{grid-template-columns:1fr}
+html[data-layout="tabs"] .about--text{grid-template-columns:1fr}
+html[data-layout="tabs"] .about--text .cities{grid-template-columns:1fr;margin-top:4px}
+html[data-layout="tabs"] .about--text .city p{display:block}
+html[data-layout="tabs"] .about--text .city{align-items:center}
+@media (max-width:860px){
+  .about--text .about__text{grid-template-columns:1fr;row-gap:24px}
+}
+/* цифры: первая прижата к левому краю, последняя — к правому, как подвал */
+@media (min-width:1024px){
+  html[data-layout="tabs"] .stats__grid{display:flex;justify-content:space-between;gap:24px}
+  html[data-layout="tabs"] .stat{justify-content:flex-start}
+}
+/* каталог: белые фото товаров целиком в окошке */
+.product__img{background:#fff;overflow:hidden}
+.product__img img{width:100%;height:100%;object-fit:contain}
