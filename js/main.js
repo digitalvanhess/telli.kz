@@ -146,16 +146,6 @@ var CONFIG = {
     var count = slides.length;
     if (count < 2) return;
 
-    var arrow = '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>';
-    var prev = document.createElement('button');
-    prev.className = 'slider__btn slider__btn--prev';
-    prev.type = 'button';
-    prev.setAttribute('aria-label', 'Предыдущее фото');
-    prev.innerHTML = arrow;
-    var next = prev.cloneNode(true);
-    next.className = 'slider__btn slider__btn--next';
-    next.setAttribute('aria-label', 'Следующее фото');
-
     var dots = document.createElement('div');
     dots.className = 'slider__dots';
     for (var i = 0; i < count; i++) {
@@ -166,7 +156,7 @@ var CONFIG = {
       d.dataset.i = i;
       dots.appendChild(d);
     }
-    slider.append(prev, next, dots);
+    slider.append(dots);
 
     var current = 0;
     var index = function () { return Math.round(track.scrollLeft / track.clientWidth); };
@@ -179,8 +169,6 @@ var CONFIG = {
       [].forEach.call(dots.children, function (d, n) { d.classList.toggle('is-active', n === current); });
     };
 
-    prev.addEventListener('click', function () { go(current - 1); restart(); });
-    next.addEventListener('click', function () { go(current + 1); restart(); });
     dots.addEventListener('click', function (e) {
       var d = e.target.closest('.slider__dot');
       if (d) { go(+d.dataset.i); restart(); }
