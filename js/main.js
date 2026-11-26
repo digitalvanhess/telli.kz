@@ -245,6 +245,19 @@ var CONFIG = {
     targets.forEach(function (el) { io.observe(el); });
   }
 
+  /* --- Фото других разделов подгружаем в фоне после загрузки страницы,
+         чтобы при переключении вкладок они были уже готовы --- */
+  window.addEventListener('load', function () {
+    var lazy = [].slice.call(document.querySelectorAll('img[loading="lazy"]'));
+    var next = function () {
+      var img = lazy.shift();
+      if (!img) return;
+      img.loading = 'eager';
+      if (img.complete) next(); else { img.addEventListener('load', next); img.addEventListener('error', next); }
+    };
+    (window.requestIdleCallback || setTimeout)(next, 300);
+  });
+
   /* --- Год в подвале --- */
   var y = document.getElementById('year');
   if (y) y.textContent = new Date().getFullYear();
