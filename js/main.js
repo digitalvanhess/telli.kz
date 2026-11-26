@@ -245,6 +245,55 @@ var CONFIG = {
     targets.forEach(function (el) { io.observe(el); });
   }
 
+  /* --- Каталог-витрина --- */
+  document.querySelectorAll('.showcase').forEach(function (sc) {
+    var slides = sc.querySelectorAll('.sc-slide'), items = sc.querySelectorAll('.sc-item'), thumbs = sc.querySelectorAll('.sc-thumb');
+    var bar = sc.querySelector('.sc-progress span'), n = slides.length, cur = 0, timer = null, chg = null;
+    var delay = +sc.dataset.autoplay || 0, hovered = false;
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var visible = function () { return !sc.closest('section').hidden && !document.hidden; };
+    var runBar = function () {
+      if (!bar) return;
+      bar.classList.remove('run'); void bar.offsetWidth;
+      if (delay && !hovered && !reduce) { bar.style.animationDuration = delay + 'ms'; bar.classList.add('run'); } else bar.style.width = '0';
+    };
+    var go = function (i, dir) {
+      i = (i + n) % n; if (i === cur) return;
+      dir = dir || (i > cur ? 1 : -1);
+      sc.classList.add('is-changing'); clearTimeout(chg); chg = setTimeout(function () { sc.classList.remove('is-changing'); }, 450);
+      [].forEach.call(slides, function (s, k) {
+        s.classList.toggle('is-active', k === i);
+        s.classList.toggle('is-left', k !== i && (k === cur ? dir > 0 : dir < 0));
+      });
+      [].forEach.call(items, function (it, k) { it.hidden = k !== i; });
+      [].forEach.call(thumbs, function (t, k) { t.classList.toggle('is-active', k === i); });
+      var img = slides[i].querySelector('img'); if (img) img.loading = 'eager';
+      cur = i; restart();
+    };
+    var restart = function () {
+      clearTimeout(timer);
+      if (delay && !hovered && !reduce) timer = setTimeout(function () { if (visible()) go(cur + 1, 1); else restart(); }, delay);
+      runBar();
+    };
+    sc.querySelector('.sc-prev').addEventListener('click', function () { go(cur - 1, -1); });
+    sc.querySelector('.sc-next').addEventListener('click', function () { go(cur + 1, 1); });
+    [].forEach.call(thumbs, function (t) { t.addEventListener('click', function () { go(+t.dataset.i); }); });
+    var stage = sc.querySelector('.showcase__stage');
+    stage.addEventListener('mouseenter', function () { hovered = true; restart(); });
+    stage.addEventListener('mouseleave', function () { hovered = false; restart(); });
+    var x0 = null;
+    stage.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+    stage.addEventListener('touchend', function (e) {
+      if (x0 === null) return; var dx = e.changedTouches[0].clientX - x0; x0 = null;
+      if (Math.abs(dx) > 40) go(cur + (dx < 0 ? 1 : -1), dx < 0 ? 1 : -1);
+    });
+    document.addEventListener('keydown', function (e) {
+      if (!visible() || sc.closest('section').getBoundingClientRect().bottom < 0) return;
+      if (e.key === 'ArrowRight') go(cur + 1, 1); else if (e.key === 'ArrowLeft') go(cur - 1, -1);
+    });
+    restart();
+  });
+
   /* --- Фото других разделов подгружаем в фоне после загрузки страницы,
          чтобы при переключении вкладок они были уже готовы --- */
   window.addEventListener('load', function () {
