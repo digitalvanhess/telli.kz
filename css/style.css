@@ -577,7 +577,6 @@ html[data-layout="tabs"] .about--text .city{align-items:center}
 .g1 .product__img{background:transparent}
 .g1 .product__img img{mix-blend-mode:multiply}
 .g1 .product__body{border:0;background:transparent;padding-top:4px}
-.g1 .product__num{display:block;position:absolute;left:14px;top:10px;z-index:3;font-family:var(--serif);font-size:13px;letter-spacing:.1em;color:var(--gold)}
 .g1 .product__brand{letter-spacing:.18em}
 .g1#brands{background:#fff}
 .g1 .product__img{isolation:auto;background:transparent!important}
