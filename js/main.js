@@ -255,7 +255,7 @@ var CONFIG = {
       img.loading = 'eager';
       if (img.complete) next(); else { img.addEventListener('load', next); img.addEventListener('error', next); }
     };
-    (window.requestIdleCallback || setTimeout)(next, 300);
+    setTimeout(next, 300);
   });
 
   /* --- Год в подвале --- */
