@@ -536,3 +536,23 @@ html[data-layout="tabs"] .about--text .city{align-items:center}
 /* каталог: белые фото товаров целиком в окошке */
 .product__img{background:#fff;overflow:hidden}
 .product__img img{width:100%;height:100%;object-fit:contain}
+
+/* =========================================================
+   Каталог 26.11: крупные продукты на белом, карточки на всю высоту,
+   кнопка «Связаться с менеджером»
+   ========================================================= */
+.link-wa{color:var(--green);font-weight:600;text-decoration:none;border-bottom:1px solid var(--gold)}
+.link-wa:hover{color:var(--gold)}
+.buy__mgr{min-height:52px;padding:12px 22px}
+.product{display:flex;flex-direction:column}
+.product__img{aspect-ratio:1;padding:6%}
+.product__body{border-top:1px solid var(--line);text-align:center}
+@media (min-width:1024px) and (min-height:600px){
+  html[data-layout="tabs"] #brands .container{height:calc(100svh - var(--header-h) - var(--fh) - 2 * var(--pad));grid-template-rows:auto auto auto minmax(0,1fr)}
+  html[data-layout="tabs"] #brands .products{grid-row:4;align-self:stretch;grid-template-rows:repeat(2,minmax(0,1fr));min-height:0;margin-top:16px}
+  html[data-layout="tabs"] #brands .buy{grid-row:1 / span 3}
+  html[data-layout="tabs"] .product{min-height:0}
+  html[data-layout="tabs"] .product__img{aspect-ratio:auto;flex:1;min-height:0;padding:4% 6%}
+  html[data-layout="tabs"] .product__body{padding:8px 10px}
+  html[data-layout="tabs"] .product__brand{font-size:14px}
+}
