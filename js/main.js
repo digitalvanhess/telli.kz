@@ -245,53 +245,70 @@ var CONFIG = {
     targets.forEach(function (el) { io.observe(el); });
   }
 
-  /* --- Каталог-витрина --- */
+  /* --- Каталог-витрина «орбита»: колесо, наведение на соседа, свайп, автопрокрутка --- */
   document.querySelectorAll('.showcase').forEach(function (sc) {
-    var slides = sc.querySelectorAll('.sc-slide'), items = sc.querySelectorAll('.sc-item'), thumbs = sc.querySelectorAll('.sc-thumb');
-    var bar = sc.querySelector('.sc-progress span'), n = slides.length, cur = 0, timer = null, chg = null;
-    var delay = +sc.dataset.autoplay || 0, hovered = false;
+    var slides = [].slice.call(sc.querySelectorAll('.sc-slide')), items = sc.querySelectorAll('.sc-item');
+    var ticks = sc.querySelectorAll('.sc-ticks span'), stage = sc.querySelector('.showcase__stage');
+    var n = slides.length, cur = 0, timer = null, chg = null, lock = 0, hoverT = null, hovered = false;
+    var delay = +sc.dataset.autoplay || 0;
     var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var visible = function () { return !sc.closest('section').hidden && !document.hidden; };
-    var runBar = function () {
-      if (!bar) return;
-      bar.classList.remove('run'); void bar.offsetWidth;
-      if (delay && !hovered && !reduce) { bar.style.animationDuration = delay + 'ms'; bar.classList.add('run'); } else bar.style.width = '0';
-    };
-    var go = function (i, dir) {
-      i = (i + n) % n; if (i === cur) return;
-      dir = dir || (i > cur ? 1 : -1);
-      sc.classList.add('is-changing'); clearTimeout(chg); chg = setTimeout(function () { sc.classList.remove('is-changing'); }, 450);
-      [].forEach.call(slides, function (s, k) {
-        s.classList.toggle('is-active', k === i);
-        s.classList.toggle('is-left', k !== i && (k === cur ? dir > 0 : dir < 0));
+    var section = sc.closest('section');
+    var visible = function () { return !section.hidden && !document.hidden; };
+    var layout = function () {
+      slides.forEach(function (s, k) {
+        var d = k - cur; if (d > n / 2) d -= n; if (d < -n / 2) d += n;
+        var ad = Math.abs(d);
+        s.style.setProperty('--d', d); s.style.setProperty('--ad', Math.min(ad, 3));
+        s.classList.toggle('is-active', d === 0);
+        s.classList.toggle('is-far', ad > 2);
+        if (ad <= 2) { var img = s.querySelector('img'); if (img) img.loading = 'eager'; }
       });
-      [].forEach.call(items, function (it, k) { it.hidden = k !== i; });
-      [].forEach.call(thumbs, function (t, k) { t.classList.toggle('is-active', k === i); });
-      var img = slides[i].querySelector('img'); if (img) img.loading = 'eager';
-      cur = i; restart();
+      [].forEach.call(items, function (it, k) { it.hidden = k !== cur; });
+      [].forEach.call(ticks, function (t, k) { t.classList.toggle('is-active', k === cur); });
+    };
+    var go = function (i) {
+      i = (i + n) % n; if (i === cur) return;
+      sc.classList.add('is-changing'); clearTimeout(chg); chg = setTimeout(function () { sc.classList.remove('is-changing'); }, 450);
+      cur = i; layout(); restart();
     };
     var restart = function () {
       clearTimeout(timer);
-      if (delay && !hovered && !reduce) timer = setTimeout(function () { if (visible()) go(cur + 1, 1); else restart(); }, delay);
-      runBar();
+      if (delay && !hovered && !reduce) timer = setTimeout(function () { if (visible()) go(cur + 1); else restart(); }, delay);
     };
-    sc.querySelector('.sc-prev').addEventListener('click', function () { go(cur - 1, -1); });
-    sc.querySelector('.sc-next').addEventListener('click', function () { go(cur + 1, 1); });
-    [].forEach.call(thumbs, function (t) { t.addEventListener('click', function () { go(+t.dataset.i); }); });
-    var stage = sc.querySelector('.showcase__stage');
+    // колесо / тачпад: один жест — один продукт
+    stage.addEventListener('wheel', function (e) {
+      var v = Math.abs(e.deltaY) > Math.abs(e.deltaX) ? e.deltaY : e.deltaX;
+      if (Math.abs(v) < 4) return;
+      e.preventDefault();
+      var now = Date.now(); if (now < lock) return; lock = now + 750;
+      go(cur + (v > 0 ? 1 : -1));
+    }, { passive: false });
+    // наведение на соседний продукт выводит его в центр (после смены ждём, пока мышь сдвинется)
+    var armX = null, armY = null;
+    stage.addEventListener('mousemove', function (e) {
+      if (armX !== null && Math.abs(e.clientX - armX) + Math.abs(e.clientY - armY) < 40) return;
+      armX = null;
+      var s = e.target.closest('.sc-slide'), k = s ? slides.indexOf(s) : -1;
+      clearTimeout(hoverT);
+      if (k < 0 || k === cur || s.classList.contains('is-far')) return;
+      hoverT = setTimeout(function () { armX = e.clientX; armY = e.clientY; go(k); }, 260);
+    });
+    slides.forEach(function (s, k) {
+      s.addEventListener('click', function (e) { clearTimeout(hoverT); armX = e.clientX; armY = e.clientY; go(k); });
+    });
     stage.addEventListener('mouseenter', function () { hovered = true; restart(); });
     stage.addEventListener('mouseleave', function () { hovered = false; restart(); });
     var x0 = null;
     stage.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
     stage.addEventListener('touchend', function (e) {
       if (x0 === null) return; var dx = e.changedTouches[0].clientX - x0; x0 = null;
-      if (Math.abs(dx) > 40) go(cur + (dx < 0 ? 1 : -1), dx < 0 ? 1 : -1);
+      if (Math.abs(dx) > 40) go(cur + (dx < 0 ? 1 : -1));
     });
     document.addEventListener('keydown', function (e) {
-      if (!visible() || sc.closest('section').getBoundingClientRect().bottom < 0) return;
-      if (e.key === 'ArrowRight') go(cur + 1, 1); else if (e.key === 'ArrowLeft') go(cur - 1, -1);
+      if (!visible()) return;
+      if (e.key === 'ArrowRight') go(cur + 1); else if (e.key === 'ArrowLeft') go(cur - 1);
     });
-    restart();
+    layout(); restart();
   });
 
   /* --- Фото других разделов подгружаем в фоне после загрузки страницы,

@@ -654,3 +654,29 @@ html[data-layout="tabs"] .g1 .products{gap:0}
 @media (prefers-reduced-motion:reduce){
   .sc-slide,.sc-ring,.sc-slide img,.sc-item{transition:none;animation:none}
 }
+
+/* Витрина «орбита»: продукты друг за другом, соседние по бокам, листание колесом / наведением */
+.showcase{grid-template-columns:minmax(240px,28%) 1fr}
+.showcase__stage{perspective:1400px;cursor:default}
+.sc-ring{left:50%}
+.sc-slide{inset:6% 22% 10%;opacity:calc(1 - var(--ad,0) * .38);
+  transform:translateX(calc(var(--d,0) * 62%)) translateZ(calc(var(--ad,0) * -260px)) rotateY(calc(var(--d,0) * -22deg)) rotateZ(calc(var(--d,0) * 7deg)) scale(calc(1 - var(--ad,0) * .2));
+  filter:blur(calc(var(--ad,0) * 1.2px));transition:transform 1s cubic-bezier(.2,.75,.15,1),opacity .8s ease,filter .8s ease;pointer-events:auto;cursor:pointer;z-index:calc(10 - var(--ad,0))}
+.sc-slide.is-far{opacity:0;pointer-events:none}
+.sc-slide.is-active{cursor:default}
+.sc-slide.is-left,.sc-slide.is-active{transform:translateX(calc(var(--d,0) * 62%)) translateZ(calc(var(--ad,0) * -260px)) rotateY(calc(var(--d,0) * -22deg)) rotateZ(calc(var(--d,0) * 7deg)) scale(calc(1 - var(--ad,0) * .2))}
+.sc-slide:not(.is-active):hover{filter:blur(0);opacity:.9}
+.showcase__stage:hover .sc-slide.is-active img{transform:none}
+.sc-slide.is-active:hover img{transform:translateY(-3%) rotate(-2deg) scale(1.04)}
+.sc-hint{margin-top:26px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(95,106,88,.75);display:flex;align-items:center;gap:10px}
+.sc-hint::before{content:"";width:28px;height:1px;background:var(--gold)}
+.sc-ticks{grid-column:1 / -1;display:flex;justify-content:center;gap:10px;padding-top:6px}
+.sc-ticks span{width:22px;height:2px;background:rgba(184,149,90,.3);transition:background .4s,width .4s}
+.sc-ticks span.is-active{background:var(--gold);width:44px}
+@media (min-width:1024px) and (min-height:600px){
+  html[data-layout="tabs"] #brands .showcase{grid-template-rows:minmax(0,1fr) auto}
+}
+@media (max-width:860px){
+  .sc-slide{inset:6% 18% 10%}
+  .sc-hint{display:none}
+}
