@@ -245,19 +245,6 @@ var CONFIG = {
     targets.forEach(function (el) { io.observe(el); });
   }
 
-  /* --- ДЕМО: варианты сетки каталога --- */
-  var brands = document.getElementById('brands');
-  var fxs = document.getElementById('fxSwitch');
-  if (brands && fxs) {
-    fxs.addEventListener('click', function (e) {
-      var b = e.target.closest('button'); if (!b) return;
-      brands.classList.remove('g0', 'g1', 'g2', 'g3'); brands.classList.add(b.dataset.g);
-      [].forEach.call(fxs.children, function (x) { x.classList.toggle('is-active', x === b); });
-    });
-    var syncFx = function () { fxs.hidden = brands.hidden; };
-    new MutationObserver(syncFx).observe(brands, { attributes: true, attributeFilter: ['hidden'] }); syncFx();
-  }
-
   /* --- Год в подвале --- */
   var y = document.getElementById('year');
   if (y) y.textContent = new Date().getFullYear();

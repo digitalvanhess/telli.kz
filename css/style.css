@@ -558,29 +558,9 @@ html[data-layout="tabs"] .about--text .city{align-items:center}
 }
 
 /* =========================================================
-   ДЕМО: эффекты при наведении на продукт (fx1 / fx2 / fx3)
+   Каталог «Витрина»: золотая сетка, номера, золотой круг при наведении
    ========================================================= */
-.fx-switch{position:fixed;right:16px;top:calc(var(--header-h) + 10px);z-index:70;display:flex;gap:6px;background:#fff;padding:6px;border:1px solid var(--line);box-shadow:0 8px 24px rgba(31,39,27,.15)}
-.fx-switch button{font:600 11px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;padding:10px 14px;border:1px solid var(--line);background:#fff;color:var(--green);cursor:pointer}
-.fx-switch button.is-active{background:var(--green);color:#fff;border-color:var(--green)}
 .product{position:relative}
-.product__img img{position:relative;z-index:1}
-/* 1: 3D-наклон за курсором, блик */
-.fx1 .product{transition:transform .25s ease-out,box-shadow .25s;will-change:transform}
-.fx1 .product:hover{box-shadow:0 22px 44px rgba(31,39,27,.18)}
-.fx1 .product:hover .product__img img{transform:translateZ(40px) scale(1.06)}
-.fx1 .product::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:2;opacity:0;transition:opacity .3s;
-  background:radial-gradient(circle at var(--mx,50%) var(--my,40%),rgba(255,255,255,.28),rgba(212,184,126,.10) 30%,transparent 55%)}
-.fx1 .product:hover::after{opacity:1}
-/* 2: крупнее + выезжающая плашка */
-.fx2 .product{overflow:hidden}
-.fx2 .product:hover{transform:none;box-shadow:0 16px 36px rgba(31,39,27,.14)}
-.fx2 .product:hover .product__img img{transform:scale(1.14) translateY(-6%)}
-.fx2 .product__body{position:relative;z-index:3;background:#fff;transition:transform .45s cubic-bezier(.2,.7,.2,1)}
-.fx2 .product__cta{position:absolute;left:0;right:0;bottom:0;z-index:4;display:flex;align-items:center;justify-content:center;gap:8px;height:44px;
-  background:var(--green);color:#fff;font:600 11px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;transform:translateY(100%);transition:transform .45s cubic-bezier(.2,.7,.2,1)}
-.fx2 .product:hover .product__cta{transform:none}
-.product__cta{display:none}.fx2 .product__cta{display:flex}
 /* 3: золотой круг за продуктом */
 .fx3 .product__img{position:relative;isolation:isolate}
 .fx3 .product__img::before{content:"";position:absolute;left:50%;top:50%;width:min(100%,var(--cd,100%));aspect-ratio:1;max-height:100%;border-radius:50%;transform:translate(-50%,-50%) scale(.2);opacity:0;
@@ -590,10 +570,7 @@ html[data-layout="tabs"] .about--text .city{align-items:center}
 .fx3 .product:hover .product__img img{transform:translateY(-5%) rotate(-3deg) scale(1.06)}
 .fx3 .product__img img{mix-blend-mode:multiply;transition:transform .6s cubic-bezier(.2,.7,.2,1),filter .6s}
 .fx3 .product:hover .product__brand{color:var(--gold)}
-@media (hover:none){.fx-switch{display:none}}
 
-/* ДЕМО: варианты сетки каталога (g0 сейчас / g1 витрина / g2 бенто / g3 арки) */
-.product__num,.products__note{display:none}
 /* 1 · Витрина: без карточек, тонкая золотая сетка, номера как в каталоге ювелирного дома */
 .g1 .products{gap:0;border-top:1px solid rgba(184,149,90,.45);border-left:1px solid rgba(184,149,90,.45)}
 .g1 .product{background:transparent;border:0;border-right:1px solid rgba(184,149,90,.45);border-bottom:1px solid rgba(184,149,90,.45);border-radius:0;box-shadow:none!important;transform:none!important}
@@ -603,20 +580,5 @@ html[data-layout="tabs"] .about--text .city{align-items:center}
 .g1 .product__num{display:block;position:absolute;left:14px;top:10px;z-index:3;font-family:var(--serif);font-size:13px;letter-spacing:.1em;color:var(--gold)}
 .g1 .product__brand{letter-spacing:.18em}
 .g1#brands{background:#fff}
-/* 2 · Бенто: первый бренд — большая витрина, плюс плитка с цифрой */
-.g2 .products{grid-template-columns:repeat(7,1fr)}
-.g2 .product:first-of-type{grid-column:span 2;grid-row:span 2}
-.g2 .product:first-of-type .product__brand{font-size:20px}
-.g2 .products__note{display:flex;flex-direction:column;justify-content:center;gap:6px;padding:14px 16px;background:var(--green);color:#D8DACB;font-size:12px;line-height:1.45}
-.g2 .products__big{font-family:var(--serif);font-size:40px;line-height:1;color:var(--gold-light)}
-.g2 .products__note{order:99}
-/* 3 · Арки: каждый продукт в своей арке, как ниши в бутике */
-.g3 .product{background:transparent;border:0;box-shadow:none!important;overflow:visible}
-.g3 .product__img{background:#fff;border-radius:999px 999px 0 0;border:1px solid rgba(184,149,90,.5);border-bottom:0;padding:14% 10% 6%}
-.g3 .product__body{border:0;border-top:2px solid var(--gold);background:transparent;padding-top:10px}
-.g3 .product:hover{transform:translateY(-4px)}
-@media (min-width:1024px) and (min-height:600px){
-  html[data-layout="tabs"] .g2 .products{grid-template-rows:repeat(2,minmax(0,1fr))}
-}
-@media (max-width:1060px){.g2 .products{grid-template-columns:repeat(3,1fr)}.g2 .products__note{display:none}}
 .g1 .product__img{isolation:auto;background:transparent!important}
+html[data-layout="tabs"] .g1 .products{gap:0}
