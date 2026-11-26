@@ -245,27 +245,17 @@ var CONFIG = {
     targets.forEach(function (el) { io.observe(el); });
   }
 
-  /* --- ДЕМО эффектов наведения в каталоге --- */
+  /* --- ДЕМО: варианты сетки каталога --- */
   var brands = document.getElementById('brands');
   var fxs = document.getElementById('fxSwitch');
   if (brands && fxs) {
-    var setFx = function (fx) {
-      brands.classList.remove('fx1', 'fx2', 'fx3'); brands.classList.add(fx);
-      [].forEach.call(fxs.children, function (b) { b.classList.toggle('is-active', b.dataset.fx === fx); });
-      brands.querySelectorAll('.product').forEach(function (c) { c.style.transform = ''; });
-    };
-    fxs.addEventListener('click', function (e) { var b = e.target.closest('button'); if (b) setFx(b.dataset.fx); });
-    var syncFx = function () { fxs.hidden = brands.hidden || brands.offsetParent === null; };
-    new MutationObserver(syncFx).observe(brands, { attributes: true, attributeFilter: ['hidden'] }); syncFx();
-    brands.querySelectorAll('.product').forEach(function (c) {
-      c.addEventListener('mousemove', function (e) {
-        if (!brands.classList.contains('fx1')) return;
-        var r = c.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
-        c.style.transform = 'perspective(800px) rotateY(' + ((x - .5) * 14) + 'deg) rotateX(' + ((.5 - y) * 14) + 'deg) translateY(-4px)';
-        c.style.setProperty('--mx', x * 100 + '%'); c.style.setProperty('--my', y * 100 + '%');
-      });
-      c.addEventListener('mouseleave', function () { c.style.transform = ''; });
+    fxs.addEventListener('click', function (e) {
+      var b = e.target.closest('button'); if (!b) return;
+      brands.classList.remove('g0', 'g1', 'g2', 'g3'); brands.classList.add(b.dataset.g);
+      [].forEach.call(fxs.children, function (x) { x.classList.toggle('is-active', x === b); });
     });
+    var syncFx = function () { fxs.hidden = brands.hidden; };
+    new MutationObserver(syncFx).observe(brands, { attributes: true, attributeFilter: ['hidden'] }); syncFx();
   }
 
   /* --- Год в подвале --- */
