@@ -556,3 +556,38 @@ html[data-layout="tabs"] .about--text .city{align-items:center}
   html[data-layout="tabs"] .product__body{padding:8px 10px}
   html[data-layout="tabs"] .product__brand{font-size:14px}
 }
+
+/* =========================================================
+   ДЕМО: эффекты при наведении на продукт (fx1 / fx2 / fx3)
+   ========================================================= */
+.fx-switch{position:fixed;right:16px;top:calc(var(--header-h) + 10px);z-index:70;display:flex;gap:6px;background:#fff;padding:6px;border:1px solid var(--line);box-shadow:0 8px 24px rgba(31,39,27,.15)}
+.fx-switch button{font:600 11px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;padding:10px 14px;border:1px solid var(--line);background:#fff;color:var(--green);cursor:pointer}
+.fx-switch button.is-active{background:var(--green);color:#fff;border-color:var(--green)}
+.product{position:relative;transform-style:preserve-3d}
+.product__img img{position:relative;z-index:1}
+/* 1: 3D-наклон за курсором, блик */
+.fx1 .product{transition:transform .25s ease-out,box-shadow .25s;will-change:transform}
+.fx1 .product:hover{box-shadow:0 22px 44px rgba(31,39,27,.18)}
+.fx1 .product:hover .product__img img{transform:translateZ(40px) scale(1.06)}
+.fx1 .product::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:2;opacity:0;transition:opacity .3s;
+  background:radial-gradient(circle at var(--mx,50%) var(--my,40%),rgba(255,255,255,.28),rgba(212,184,126,.10) 30%,transparent 55%)}
+.fx1 .product:hover::after{opacity:1}
+/* 2: крупнее + выезжающая плашка */
+.fx2 .product{overflow:hidden}
+.fx2 .product:hover{transform:none;box-shadow:0 16px 36px rgba(31,39,27,.14)}
+.fx2 .product:hover .product__img img{transform:scale(1.14) translateY(-6%)}
+.fx2 .product__body{position:relative;z-index:3;background:#fff;transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+.fx2 .product__cta{position:absolute;left:0;right:0;bottom:0;z-index:4;display:flex;align-items:center;justify-content:center;gap:8px;height:44px;
+  background:var(--green);color:#fff;font:600 11px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;transform:translateY(100%);transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+.fx2 .product:hover .product__cta{transform:none}
+.product__cta{display:none}.fx2 .product__cta{display:flex}
+/* 3: золотой круг за продуктом */
+.fx3 .product__img{position:relative;isolation:isolate}
+.fx3 .product__img::before{content:"";position:absolute;left:50%;top:50%;width:78%;aspect-ratio:1;max-height:92%;border-radius:50%;transform:translate(-50%,-50%) scale(.2);opacity:0;
+  background:radial-gradient(circle,#F1E3C2 0%,#E8D3A6 58%,rgba(232,211,166,0) 71%);z-index:0;transition:transform .6s cubic-bezier(.2,.7,.2,1),opacity .4s}
+.fx3 .product:hover .product__img::before{transform:translate(-50%,-50%) scale(1);opacity:1}
+.fx3 .product:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(47,69,38,.12)}
+.fx3 .product:hover .product__img img{transform:translateY(-5%) rotate(-3deg) scale(1.06)}
+.fx3 .product__img img{mix-blend-mode:multiply;transition:transform .6s cubic-bezier(.2,.7,.2,1),filter .6s}
+.fx3 .product:hover .product__brand{color:var(--gold)}
+@media (hover:none){.fx-switch{display:none}}
